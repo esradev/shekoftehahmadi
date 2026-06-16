@@ -169,13 +169,13 @@ foreach ($level_labels as $level_key => $level_label) {
               <?php while (have_posts()) : the_post(); ?>
                 <?php
                 $course_id = get_the_ID();
-                $course_price = learndash_get_course_price($course_id);
-                $course_price_type = learndash_get_price_type($course_id);
-                $course_steps = learndash_course_get_steps($course_id);
+                $course_price = function_exists('learndash_get_course_price') ? learndash_get_course_price($course_id) : '';
+                $course_price_type = function_exists('learndash_get_price_type') ? learndash_get_price_type($course_id) : '';
+                $course_steps = function_exists('learndash_course_get_steps') ? learndash_course_get_steps($course_id) : array();
                 $lesson_count = isset($course_steps['lessons']) ? count($course_steps['lessons']) : 0;
                 $difficulty = get_post_meta($course_id, 'ld_course_difficulty', true);
                 $difficulty_label = isset($level_labels[$difficulty]) ? $level_labels[$difficulty] : '';
-                
+
                 $card_args = array(
                   'id' => $course_id,
                   'title' => get_the_title(),
@@ -187,7 +187,7 @@ foreach ($level_labels as $level_key => $level_label) {
                   'difficulty' => $difficulty_label,
                   'permalink' => get_permalink($course_id),
                 );
-                
+
                 get_template_part('template-parts/cards/course-card', null, $card_args);
                 ?>
               <?php endwhile; ?>

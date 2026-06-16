@@ -8,8 +8,8 @@ get_header();
     <?php
     $course_id = get_the_ID();
 
-    $course_price = learndash_get_course_price($course_id);
-    $course_price_type = learndash_get_price_type($course_id);
+    $course_price = function_exists('learndash_get_course_price') ? learndash_get_course_price($course_id) : '';
+    $course_price_type = function_exists('learndash_get_price_type') ? learndash_get_price_type($course_id) : '';
     $short_desc = get_post_meta($course_id, 'ld_course_short_description', true);
     $summary = $short_desc ? $short_desc : wp_trim_words(wp_strip_all_tags(get_the_content()), 38);
 
@@ -29,7 +29,7 @@ get_header();
     );
     $difficulty_label = isset($difficulty_labels[$difficulty]) ? $difficulty_labels[$difficulty] : '';
 
-    $course_steps = learndash_course_get_steps($course_id);
+    $course_steps = function_exists('learndash_course_get_steps') ? learndash_course_get_steps($course_id) : array();
     $lesson_count = isset($course_steps['lessons']) ? count($course_steps['lessons']) : 0;
     $topic_count = isset($course_steps['topics']) ? count($course_steps['topics']) : 0;
     $quiz_count = isset($course_steps['quizzes']) ? count($course_steps['quizzes']) : 0;
@@ -53,13 +53,13 @@ get_header();
       )
     );
 
-    $is_enrolled = learndash_user_enrolled_in_course(get_current_user_id(), $course_id);
-    $course_progress = $is_enrolled ? learndash_course_progress($course_id, get_current_user_id()) : array();
+    $is_enrolled = function_exists('learndash_user_enrolled_in_course') ? learndash_user_enrolled_in_course(get_current_user_id(), $course_id) : false;
+    $course_progress = ($is_enrolled && function_exists('learndash_course_progress')) ? learndash_course_progress($course_id, get_current_user_id()) : array();
     $progress_percent = isset($course_progress['percentage']) ? (int) $course_progress['percentage'] : 0;
 
     $certificate_link = '';
     if ($is_enrolled && $progress_percent >= 100) {
-      $certificate_link = learndash_get_certificate_link($course_id, get_current_user_id());
+      $certificate_link = function_exists('learndash_get_certificate_link') ? learndash_get_certificate_link($course_id, get_current_user_id()) : '';
     }
     ?>
 
@@ -131,20 +131,20 @@ get_header();
                         </div>
                         <span class="text-sm font-semibold text-slate-700"><?php echo esc_html($progress_percent); ?>%</span>
                       </div>
-                      <a href="<?php echo esc_url(learndash_get_course_step_link($course_id, get_current_user_id())); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ادامه دوره</a>
+                      <a href="<?php echo esc_url(function_exists('learndash_get_course_step_link') ? learndash_get_course_step_link($course_id, get_current_user_id()) : get_permalink($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ادامه دوره</a>
                     <?php elseif ($progress_percent >= 100) : ?>
                       <?php if ($certificate_link) : ?>
                         <a href="<?php echo esc_url($certificate_link); ?>" target="_blank" class="inline-flex items-center justify-center rounded-full bg-emerald-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 sm:text-base">دریافت گواهی‌نامه</a>
                       <?php endif; ?>
-                      <a href="<?php echo esc_url(learndash_get_course_step_link($course_id, get_current_user_id())); ?>" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 sm:text-base">مشاهده مجدد</a>
+                      <a href="<?php echo esc_url(function_exists('learndash_get_course_step_link') ? learndash_get_course_step_link($course_id, get_current_user_id()) : get_permalink($course_id)); ?>" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 sm:text-base">مشاهده مجدد</a>
                     <?php else : ?>
-                      <a href="<?php echo esc_url(learndash_get_course_step_link($course_id, get_current_user_id())); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">شروع دوره</a>
+                      <a href="<?php echo esc_url(function_exists('learndash_get_course_step_link') ? learndash_get_course_step_link($course_id, get_current_user_id()) : get_permalink($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">شروع دوره</a>
                     <?php endif; ?>
                   <?php else : ?>
                     <?php if ('free' === $course_price_type || empty($course_price)) : ?>
-                      <a href="<?php echo esc_url(learndash_get_course_enroll_url($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ثبت‌نام رایگان</a>
+                      <a href="<?php echo esc_url(function_exists('learndash_get_course_enroll_url') ? learndash_get_course_enroll_url($course_id) : get_permalink($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ثبت‌نام رایگان</a>
                     <?php else : ?>
-                      <a href="<?php echo esc_url(learndash_get_course_enroll_url($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ثبت‌نام در دوره</a>
+                      <a href="<?php echo esc_url(function_exists('learndash_get_course_enroll_url') ? learndash_get_course_enroll_url($course_id) : get_permalink($course_id)); ?>" class="inline-flex items-center justify-center rounded-full bg-purple-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-purple-500 sm:text-base">ثبت‌نام در دوره</a>
                     <?php endif; ?>
                   <?php endif; ?>
 
@@ -230,10 +230,10 @@ get_header();
                   <?php
                   $lesson_id = $lesson->ID;
                   $lesson_title = get_the_title($lesson_id);
-                  $lesson_topics = learndash_course_get_steps($course_id, $lesson_id);
+                  $lesson_topics = function_exists('learndash_course_get_steps') ? learndash_course_get_steps($course_id, $lesson_id) : array();
                   $lesson_topic_count = isset($lesson_topics['topics']) ? count($lesson_topics['topics']) : 0;
                   $lesson_quiz_count = isset($lesson_topics['quizzes']) ? count($lesson_topics['quizzes']) : 0;
-                  $is_lesson_complete = $is_enrolled ? learndash_is_lesson_complete(get_current_user_id(), $lesson_id, $course_id) : false;
+                  $is_lesson_complete = ($is_enrolled && function_exists('learndash_is_lesson_complete')) ? learndash_is_lesson_complete(get_current_user_id(), $lesson_id, $course_id) : false;
                   ?>
                   <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
                     <div class="flex items-start gap-3">
