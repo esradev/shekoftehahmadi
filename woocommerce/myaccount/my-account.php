@@ -17,7 +17,7 @@ $current_user = wp_get_current_user();
 
 <div class="min-h-screen bg-slate-50">
   <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-    
+
     <div class="mb-8">
       <h1 class="text-3xl font-bold text-slate-900">
         <?php esc_html_e('My Account', 'woocommerce'); ?>
@@ -34,9 +34,9 @@ $current_user = wp_get_current_user();
     </div>
 
     <div class="lg:flex lg:gap-8">
-      
+
       <!-- Navigation Sidebar -->
-      <aside class="lg:w-64 lg:flex-shrink-0">
+      <aside class="lg:w-64 lg:shrink-0">
         <?php do_action('woocommerce_account_navigation'); ?>
       </aside>
 
@@ -46,8 +46,8 @@ $current_user = wp_get_current_user();
           <?php do_action('woocommerce_account_content'); ?>
         </div>
       </main>
-      
+
     </div>
-    
+
   </div>
 </div>

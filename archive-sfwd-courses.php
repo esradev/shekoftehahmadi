@@ -7,34 +7,46 @@ $hero_title       = 'دوره‌های آموزشی';
 $hero_description = 'دوره‌های جامع و کاربردی در حوزه‌های مختلف — با محتوای به‌روز، اساتید مجرب و گواهی‌نامه معتبر.';
 $hero_current     = 'دوره‌ها';
 
-if (is_tax('ld_course_category')) {
+// Set base URL for filters so we stay inside the current category if one is active
+$base_url = get_post_type_archive_link('sfwd-courses');
+
+if (is_tax('ld_course_category') || is_tax('ld_course_tag')) {
   $term = get_queried_object();
   if ($term instanceof WP_Term) {
-    $hero_badge       = 'دسته‌بندی دوره';
+    $hero_badge       = is_tax('ld_course_category') ? 'دسته‌بندی دوره' : 'برچسب دوره';
     $hero_title       = $term->name;
     $hero_description = $term->description ? wp_trim_words(wp_strip_all_tags($term->description), 28) : $hero_description;
     $hero_current     = $term->name;
-  }
-} elseif (is_tax('ld_course_tag')) {
-  $term = get_queried_object();
-  if ($term instanceof WP_Term) {
-    $hero_badge       = 'برچسب دوره';
-    $hero_title       = $term->name;
-    $hero_description = $term->description ? wp_trim_words(wp_strip_all_tags($term->description), 28) : $hero_description;
-    $hero_current     = $term->name;
+    $base_url         = get_term_link($term); // Keeps filters inside the category
   }
 }
 
 $active_level   = isset($_GET['difficulty']) ? sanitize_text_field($_GET['difficulty']) : '';
 $level_labels   = array(
-  'beginner'   => 'مبتدی',
+  'beginner'     => 'مبتدی',
   'intermediate' => 'متوسط',
-  'advanced'   => 'پیشرفته',
+  'advanced'     => 'پیشرفته',
 );
-$archive_url    = get_post_type_archive_link('sfwd-courses');
-$found_posts    = $GLOBALS['wp_query']->found_posts;
 $search_query   = get_search_query();
-$course_cats    = get_terms(array(
+
+// --- FIX: Apply the difficulty filter to the main query so it actually updates the list ---
+global $wp_query;
+if ($active_level && $wp_query->is_main_query()) {
+    $args = $wp_query->query_vars;
+    $args['meta_query'] = array(
+        array(
+            'key'     => 'ld_course_difficulty',
+            'value'   => $active_level,
+            'compare' => '='
+        )
+    );
+    // Re-run the main query to apply the filter (preserves pagination safely)
+    $wp_query = new WP_Query($args);
+}
+
+$found_posts = $wp_query->found_posts;
+
+$course_cats = get_terms(array(
   'taxonomy'   => 'ld_course_category',
   'hide_empty' => true,
   'orderby'    => 'name',
@@ -53,9 +65,10 @@ if (is_tax('ld_course_category')) {
   }
 }
 
+// --- FIX: Make Sidebar Level Counts accurate to the current category/search ---
 $level_counts = array();
 foreach ($level_labels as $level_key => $level_label) {
-  $count_query = new WP_Query(array(
+  $count_args = array(
     'post_type'      => 'sfwd-courses',
     'post_status'    => 'publish',
     'posts_per_page' => 1,
@@ -67,9 +80,29 @@ foreach ($level_labels as $level_key => $level_label) {
         'compare' => '=',
       ),
     ),
-  ));
+  );
+
+  // Preserve category context for accurate numbers
+  if (is_tax('ld_course_category') || is_tax('ld_course_tag')) {
+      $queried_object = get_queried_object();
+      if ($queried_object instanceof WP_Term) {
+          $count_args['tax_query'] = array(
+              array(
+                  'taxonomy' => $queried_object->taxonomy,
+                  'field'    => 'term_id',
+                  'terms'    => $queried_object->term_id,
+              )
+          );
+      }
+  }
+
+  // Preserve search context
+  if ($search_query) {
+      $count_args['s'] = $search_query;
+  }
+
+  $count_query = new WP_Query($count_args);
   $level_counts[$level_key] = (int) $count_query->found_posts;
-  wp_reset_postdata();
 }
 ?>
 
@@ -132,7 +165,7 @@ foreach ($level_labels as $level_key => $level_label) {
                   </p>
                 </div>
                 <?php if ($search_query) : ?>
-                  <p class="text-sm text-purple-700">جستجو: «<?php echo esc_html($search_query); ?>»</p>
+                <p class="text-sm text-purple-700">جستجو: «<?php echo esc_html($search_query); ?>»</p>
                 <?php endif; ?>
               </div>
 
@@ -143,78 +176,96 @@ foreach ($level_labels as $level_key => $level_label) {
                   ? 'bg-purple-600 text-white shadow-md shadow-purple-200'
                   : 'border border-slate-200 bg-white text-slate-700 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700';
                 ?>
-                <a href="<?php echo esc_url(remove_query_arg('difficulty', $archive_url)); ?>" class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($all_classes); ?>">
+                <a href="<?php echo esc_url(remove_query_arg('difficulty', $base_url)); ?>"
+                  class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($all_classes); ?>">
                   همه
                 </a>
 
                 <?php foreach ($level_labels as $level_key => $level_label) : ?>
-                  <?php
+                <?php
                   $is_active = $active_level === $level_key;
                   $chip_classes = $is_active
                     ? 'bg-purple-600 text-white shadow-md shadow-purple-200'
                     : 'border border-slate-200 bg-white text-slate-700 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700';
                   $level_count = isset($level_counts[$level_key]) ? $level_counts[$level_key] : 0;
                   ?>
-                  <a href="<?php echo esc_url(add_query_arg('difficulty', $level_key, $archive_url)); ?>" class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($chip_classes); ?>">
-                    <?php echo esc_html($level_label); ?>
-                    <span class="text-xs opacity-75">(<?php echo esc_html($level_count); ?>)</span>
-                  </a>
+                <a href="<?php echo esc_url(add_query_arg('difficulty', $level_key, $base_url)); ?>"
+                  class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($chip_classes); ?>">
+                  <?php echo esc_html($level_label); ?>
+                  <span class="text-xs opacity-75">(<?php echo esc_html($level_count); ?>)</span>
+                </a>
                 <?php endforeach; ?>
               </div>
             </div>
           </div>
 
           <?php if (have_posts()) : ?>
-            <div class="grid gap-6 md:grid-cols-2">
-              <?php while (have_posts()) : the_post(); ?>
-                <?php
+          <div class="grid gap-6 md:grid-cols-2">
+            <?php while (have_posts()) : the_post(); ?>
+            <?php
                 $course_id = get_the_ID();
-                $course_price = function_exists('learndash_get_course_price') ? learndash_get_course_price($course_id) : '';
-                $course_price_type = function_exists('learndash_get_price_type') ? learndash_get_price_type($course_id) : '';
+
+                // --- FIX: Safely extract price and type from the Array to prevent Fatal Error crashing the loop ---
+                $price_data = function_exists('learndash_get_course_price') ? learndash_get_course_price($course_id) : array();
+                $course_price = '';
+                $course_price_type = '';
+
+                if (is_array($price_data)) {
+                    $course_price = $price_data['price'] ?? '';
+                    $course_price_type = $price_data['type'] ?? '';
+                }
+
                 $course_steps = function_exists('learndash_course_get_steps') ? learndash_course_get_steps($course_id) : array();
                 $lesson_count = isset($course_steps['lessons']) ? count($course_steps['lessons']) : 0;
+
                 $difficulty = get_post_meta($course_id, 'ld_course_difficulty', true);
                 $difficulty_label = isset($level_labels[$difficulty]) ? $level_labels[$difficulty] : '';
 
                 $card_args = array(
-                  'id' => $course_id,
-                  'title' => get_the_title(),
-                  'excerpt' => get_the_excerpt(),
-                  'thumbnail' => get_the_post_thumbnail_url($course_id, 'medium_large'),
-                  'price' => $course_price,
-                  'price_type' => $course_price_type,
+                  'id'           => $course_id,
+                  'title'        => get_the_title(),
+                  'excerpt'      => get_the_excerpt(),
+                  'thumbnail'    => get_the_post_thumbnail_url($course_id, 'medium_large'),
+                  'price'        => $course_price,
+                  'price_type'   => $course_price_type,
                   'lesson_count' => $lesson_count,
-                  'difficulty' => $difficulty_label,
-                  'permalink' => get_permalink($course_id),
+                  'difficulty'   => $difficulty_label,
+                  'permalink'    => get_permalink($course_id),
                 );
 
                 get_template_part('template-parts/cards/course-card', null, $card_args);
                 ?>
-              <?php endwhile; ?>
-            </div>
+            <?php endwhile; ?>
+          </div>
 
-            <div class="mt-12"><?php get_template_part('template-parts/ui/pagination'); ?></div>
+          <div class="mt-12"><?php get_template_part('template-parts/ui/pagination'); ?></div>
           <?php else : ?>
-            <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
-              <p class="text-lg font-bold text-slate-900">دوره‌ای یافت نشد</p>
-              <p class="mt-2 text-sm text-slate-600">فیلتر دیگری امتحان کنید یا با تیم پشتیبانی برای راهنمایی تماس بگیرید.</p>
-              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex items-center justify-center rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-purple-500">مشاوره رایگان</a>
-            </div>
+          <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
+            <p class="text-lg font-bold text-slate-900">دوره‌ای یافت نشد</p>
+            <p class="mt-2 text-sm text-slate-600">فیلتر دیگری امتحان کنید یا با تیم پشتیبانی برای راهنمایی تماس بگیرید.
+            </p>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>"
+              class="mt-6 inline-flex items-center justify-center rounded-full bg-purple-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-purple-500">مشاوره
+              رایگان</a>
+          </div>
           <?php endif; ?>
         </div>
 
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <h2 class="text-lg font-bold text-slate-900">جستجو در دوره‌ها</h2>
-            <form role="search" method="get" action="<?php echo esc_url($archive_url); ?>" class="mt-4">
+            <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-4">
               <label for="course-sidebar-search" class="sr-only">جستجو</label>
               <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                <input id="course-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_query); ?>" placeholder="نام دوره، مدرس یا کلیدواژه..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
+                <input id="course-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_query); ?>"
+                  placeholder="نام دوره، مدرس یا کلیدواژه..."
+                  class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
                 <input type="hidden" name="post_type" value="sfwd-courses" />
                 <?php if ($active_level) : ?>
-                  <input type="hidden" name="difficulty" value="<?php echo esc_attr($active_level); ?>" />
+                <input type="hidden" name="difficulty" value="<?php echo esc_attr($active_level); ?>" />
                 <?php endif; ?>
-                <button type="submit" class="shrink-0 rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-500">جستجو</button>
+                <button type="submit"
+                  class="shrink-0 rounded-xl bg-purple-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-purple-500">جستجو</button>
               </div>
             </form>
           </div>
@@ -223,20 +274,21 @@ foreach ($level_labels as $level_key => $level_label) {
             <h2 class="text-lg font-bold text-slate-900">دسته‌بندی‌ها</h2>
             <ul class="mt-4 space-y-3 text-sm text-slate-600">
               <?php
-              $all_courses_url = $archive_url;
+              $all_courses_url = get_post_type_archive_link('sfwd-courses');
               if ($active_level) {
                 $all_courses_url = add_query_arg('difficulty', $active_level, $all_courses_url);
               }
               ?>
               <li>
-                <a href="<?php echo esc_url($all_courses_url); ?>" class="<?php echo 0 === $current_cat_id ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
+                <a href="<?php echo esc_url($all_courses_url); ?>"
+                  class="<?php echo 0 === $current_cat_id ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
                   همه دوره‌ها
                 </a>
               </li>
 
               <?php if (! empty($course_cats)) : ?>
-                <?php foreach ($course_cats as $course_cat) : ?>
-                  <?php
+              <?php foreach ($course_cats as $course_cat) : ?>
+              <?php
                   $cat_link = get_term_link($course_cat);
                   if (is_wp_error($cat_link)) {
                     continue;
@@ -246,15 +298,16 @@ foreach ($level_labels as $level_key => $level_label) {
                   }
                   $is_current = $current_cat_id === (int) $course_cat->term_id;
                   ?>
-                  <li>
-                    <a href="<?php echo esc_url($cat_link); ?>" class="<?php echo $is_current ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
-                      <?php echo esc_html($course_cat->name); ?>
-                      <span class="text-slate-400">(<?php echo esc_html($course_cat->count); ?>)</span>
-                    </a>
-                  </li>
-                <?php endforeach; ?>
+              <li>
+                <a href="<?php echo esc_url($cat_link); ?>"
+                  class="<?php echo $is_current ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
+                  <?php echo esc_html($course_cat->name); ?>
+                  <span class="text-slate-400">(<?php echo esc_html($course_cat->count); ?>)</span>
+                </a>
+              </li>
+              <?php endforeach; ?>
               <?php else : ?>
-                <li class="text-slate-500">دسته‌ای موجود نیست.</li>
+              <li class="text-slate-500">دسته‌ای موجود نیست.</li>
               <?php endif; ?>
             </ul>
           </div>
@@ -263,25 +316,28 @@ foreach ($level_labels as $level_key => $level_label) {
             <h2 class="text-lg font-bold text-slate-900">سطح دوره</h2>
             <ul class="mt-4 space-y-3 text-sm text-slate-600">
               <?php foreach ($level_labels as $level_key => $level_label) : ?>
-                <?php
-                $level_url = add_query_arg('difficulty', $level_key, $archive_url);
+              <?php
+                $level_url = add_query_arg('difficulty', $level_key, $base_url);
                 $is_current_level = $active_level === $level_key;
                 $level_count = isset($level_counts[$level_key]) ? $level_counts[$level_key] : 0;
                 ?>
-                <li>
-                  <a href="<?php echo esc_url($level_url); ?>" class="flex items-center justify-between <?php echo $is_current_level ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
-                    <span><?php echo esc_html($level_label); ?></span>
-                    <span class="text-slate-400"><?php echo esc_html($level_count); ?></span>
-                  </a>
-                </li>
+              <li>
+                <a href="<?php echo esc_url($level_url); ?>"
+                  class="flex items-center justify-between <?php echo $is_current_level ? 'font-semibold text-purple-700' : 'transition hover:text-purple-700'; ?>">
+                  <span><?php echo esc_html($level_label); ?></span>
+                  <span class="text-slate-400"><?php echo esc_html($level_count); ?></span>
+                </a>
+              </li>
               <?php endforeach; ?>
             </ul>
           </div>
 
           <div class="rounded-2xl border border-purple-100 bg-linear-to-br from-purple-50 to-indigo-50 p-6">
             <h2 class="text-lg font-bold text-slate-900">در انتخاب دوره مردد هستید؟</h2>
-            <p class="mt-3 text-sm leading-7 text-slate-600">سطح فعلی و اهداف خود را بگویید تا مناسب‌ترین دوره آموزشی را پیشنهاد دهیم.</p>
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-purple-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-purple-500">
+            <p class="mt-3 text-sm leading-7 text-slate-600">سطح فعلی و اهداف خود را بگویید تا مناسب‌ترین دوره آموزشی را
+              پیشنهاد دهیم.</p>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>"
+              class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-purple-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-purple-500">
               مشاوره رایگان
             </a>
           </div>

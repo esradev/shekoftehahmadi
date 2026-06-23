@@ -28,14 +28,15 @@ if (! function_exists('romonet_primary_menu_fallback')) {
   function romonet_primary_menu_fallback()
   {
 ?>
-    <ul class="flex flex-col gap-3 md:flex-row md:items-center md:gap-6">
-      <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/')); ?>">خانه</a></li>
-      <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/service/')); ?>">خدمات</a></li>
-      <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/portfolio/')); ?>">نمونه‌کارها</a></li>
-      <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/pricing/')); ?>">قیمت‌ها</a></li>
-      <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/contact/')); ?>">تماس</a></li>
-    </ul>
-  <?php
+<ul class="flex flex-col gap-3 md:flex-row md:items-center md:gap-6">
+  <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/')); ?>">خانه</a></li>
+  <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/service/')); ?>">خدمات</a></li>
+  <li><a class="text-white hover:text-primary-600"
+      href="<?php echo esc_url(home_url('/portfolio/')); ?>">نمونه‌کارها</a></li>
+  <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/pricing/')); ?>">قیمت‌ها</a></li>
+  <li><a class="text-white hover:text-primary-600" href="<?php echo esc_url(home_url('/contact/')); ?>">تماس</a></li>
+</ul>
+<?php
   }
 }
 
@@ -43,12 +44,11 @@ if (! function_exists('romonet_top_bar_menu_fallback')) {
   function romonet_top_bar_menu_fallback()
   {
   ?>
-    <ul class="flex flex-wrap items-center gap-x-5 gap-y-1">
-      <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a></li>
-      <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/case-study/')); ?>">مطالعات موردی</a></li>
-      <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/blog/')); ?>">وبلاگ</a></li>
-      <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/pricing/')); ?>">تعرفه‌ها</a></li>
-    </ul>
+<ul class="flex flex-wrap items-center gap-x-5 gap-y-1">
+  <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a></li>
+  <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/blog/')); ?>">وبلاگ</a></li>
+  <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/pricing/')); ?>">تعرفه‌ها</a></li>
+</ul>
 <?php
   }
 }
