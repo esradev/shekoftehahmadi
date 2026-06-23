@@ -1,5 +1,5 @@
 {
-  "name": "brads-boilerplate-theme",
+  "name": "shekoftehahmadi",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,8 +12,18 @@
     "start": "npm-run-all --parallel wpstart tailwindwatch",
     "tailwindbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
     "tailwindwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "plugin-zip": "wp-scripts plugin-zip"
   },
+  "files": [
+    "assets/**",
+    "build/**",
+    "inc/**",
+    "template-parts/**",
+    "woocommerce/**",
+    "*.php",
+    "style.css"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
