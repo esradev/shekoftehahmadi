@@ -24,10 +24,10 @@ $shop_url               = romonet_get_home_shop_url();
         <div>
           <span class="inline-flex items-center gap-2 rounded-full border border-pink-100 bg-pink-50 px-3.5 py-1.5 text-sm font-medium text-pink-700">
             <span class="h-2 w-2 rounded-full bg-cyan-500"></span>
-            بیش از ۱۲ سال تجربه تخصصی وردپرس
+            بیش از ۱۲ سال تجربه آموزش دوره های گرافیکی
           </span>
           <h1 class="mt-6 text-balance text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-            سایت وردپرسی که <span class="text-pink-600">کسب‌وکار شما</span> را جلو می‌برد
+           یادگیری که به <span class="text-pink-600">کسب‌وکار شما</span> کمک خواهد کرد.
           </h1>
           <p class="mt-5 max-w-xl text-pretty text-lg leading-8 text-slate-600">
             ما طراحی سایت، فروشگاه ووکامرس، افزونه و قالب اختصاصی، یکپارچه‌سازی پیامک و نگهداری وردپرس را با کیفیتی حرفه‌ای و قابل اتکا انجام می‌دهیم.
