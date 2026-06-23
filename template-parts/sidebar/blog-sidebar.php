@@ -11,18 +11,18 @@ $recent_count  = isset($args['recent_count']) ? absint($args['recent_count']) : 
 
 <aside class="space-y-6">
   <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-    <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Search the blog', 'romonet'); ?></h2>
+    <h2 class="text-lg font-bold text-slate-900">جستجو در آموزش‌ها</h2>
     <form role="search" method="get" action="<?php echo esc_url($search_action); ?>" class="mt-4">
-      <label for="blog-sidebar-search" class="sr-only"><?php esc_html_e('Search', 'romonet'); ?></label>
+      <label for="blog-sidebar-search" class="sr-only">جستجو</label>
       <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
-        <input id="blog-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_value); ?>" placeholder="<?php esc_attr_e('Topic or keyword', 'romonet'); ?>" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
-        <button type="submit" class="rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500"><?php esc_html_e('Go', 'romonet'); ?></button>
+        <input id="blog-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_value); ?>" placeholder="موضوع یا کلمه کلیدی..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
+        <button type="submit" class="rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500">جستجو</button>
       </div>
     </form>
   </div>
 
   <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-    <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Categories', 'romonet'); ?></h2>
+    <h2 class="text-lg font-bold text-slate-900">دسته‌بندی‌های آموزشی</h2>
     <ul class="mt-4 space-y-3 text-sm text-slate-600">
       <?php
       $categories = get_categories(
@@ -44,7 +44,7 @@ $recent_count  = isset($args['recent_count']) ? absint($args['recent_count']) : 
           </li>
         <?php endforeach;
       else : ?>
-        <li class="text-slate-500"><?php esc_html_e('No categories yet.', 'romonet'); ?></li>
+        <li class="text-slate-500">هنوز دسته‌بندی ایجاد نشده است.</li>
       <?php endif; ?>
     </ul>
   </div>
@@ -63,7 +63,7 @@ $recent_count  = isset($args['recent_count']) ? absint($args['recent_count']) : 
   if ($recent_posts->have_posts()) :
   ?>
     <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-      <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Latest articles', 'romonet'); ?></h2>
+      <h2 class="text-lg font-bold text-slate-900">جدیدترین مقالات</h2>
       <ul class="mt-4 space-y-4">
         <?php while ($recent_posts->have_posts()) : $recent_posts->the_post(); ?>
           <li>
@@ -91,7 +91,7 @@ $recent_count  = isset($args['recent_count']) ? absint($args['recent_count']) : 
   if (! empty($tags)) :
   ?>
     <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-      <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Popular tags', 'romonet'); ?></h2>
+      <h2 class="text-lg font-bold text-slate-900">برچسب‌های پرکاربرد</h2>
       <div class="mt-4 flex flex-wrap gap-2">
         <?php foreach ($tags as $tag) : ?>
           <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
@@ -103,10 +103,10 @@ $recent_count  = isset($args['recent_count']) ? absint($args['recent_count']) : 
   <?php endif; ?>
 
   <div class="rounded-2xl border border-pink-100 bg-linear-to-br from-pink-50 to-cyan-50 p-7 shadow-sm">
-    <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Need expert help?', 'romonet'); ?></h2>
-    <p class="mt-3 text-sm leading-7 text-slate-600"><?php esc_html_e('Turn insights into action. Tell us about your project and we will recommend the right technical path.', 'romonet'); ?></p>
-    <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
-      <?php esc_html_e('Start a project', 'romonet'); ?>
+    <h2 class="text-lg font-bold text-slate-900">نیاز به راهنمایی دارید؟</h2>
+    <p class="mt-3 text-sm leading-7 text-slate-600">مسیر یادگیری خود را از همین امروز شروع کنید. برای دریافت مشاوره و انتخاب بهترین دوره آموزشی گرافیک با ما در ارتباط باشید.</p>
+    <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
+      مشاوره رایگان
     </a>
   </div>
 </aside>

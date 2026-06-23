@@ -27,22 +27,37 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2 text-xs sm:px-6 lg:px-8">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
         <span class="hidden items-center gap-1.5 sm:inline-flex">
-          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-pink-400" width="1em" height="1em" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+              <path d="M16 2v4M8 2v4m13 6c0-3.771 0-5.657-1.172-6.828S16.771 4 13 4h-2C7.229 4 5.343 4 4.172 5.172S3 8.229 3 12v2c0 3.771 0 5.657 1.172 6.828S7.229 22 11 22M3 10h18" />
+              <path d="M18.267 18.701L17 18v-1.733M21 18a4 4 0 1 1-8 0a4 4 0 0 1 8 0" />
+            </g>
           </svg>
+
           <span>شنبه تا پنج‌شنبه، ۹ تا ۱۸</span>
         </span>
-        <a href="tel:+982112345678" class="inline-flex items-center gap-1.5 transition hover:text-white" dir="ltr">
-          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+        <a href="tel:+989354494013" class="inline-flex items-center gap-1.5 transition hover:text-white" dir="ltr">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-pink-400" width="1em" height="1em" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <g fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M4 10c0-3.771 0-5.657 1.172-6.828S8.229 2 12 2h1.5c3.771 0 5.657 0 6.828 1.172S21.5 6.229 21.5 10v4c0 3.771 0 5.657-1.172 6.828S17.271 22 13.5 22H12c-3.771 0-5.657 0-6.828-1.172S4 17.771 4 14z" />
+              <path stroke-linejoin="round" d="M9.8 11.974c-.427-.744-.633-1.351-.757-1.967c-.184-.91.237-1.8.933-2.368c.295-.24.632-.158.806.155l.393.705c.311.558.467.838.436 1.134c-.03.296-.24.537-.66 1.02zm0 0a10.36 10.36 0 0 0 3.726 3.726m0 0c.744.427 1.351.633 1.967.757c.91.184 1.8-.237 2.368-.933c.24-.295.158-.632-.155-.806l-.704-.393c-.56-.311-.839-.467-1.135-.436c-.296.03-.537.24-1.02.66z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 6H2.5M5 12H2.5M5 18H2.5" />
+            </g>
           </svg>
-          ۰۲۱-۱۲۳۴۵۶۷۸
+          09354494013
         </a>
-        <a href="mailto:info@romonet.ir" class="hidden items-center gap-1.5 transition hover:text-white md:inline-flex" dir="ltr">
-          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+        <a href="mailto:shekoftehahmadi@gmail.com" class="hidden items-center gap-1.5 transition hover:text-white md:inline-flex" dir="ltr">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 shrink-0 text-pink-400" width="1em" height="1em" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none" />
+            <g fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="1.5">
+              <path d="m2 5l6.913 3.925c2.526 1.433 3.648 1.433 6.174 0L22 5" />
+              <path stroke-linecap="round" d="M10.5 19.5a116 116 0 0 1-1.401-.027c-3.149-.079-4.723-.118-5.854-1.255c-1.131-1.136-1.164-2.67-1.23-5.737a69 69 0 0 1 0-2.953c.066-3.067.099-4.6 1.23-5.737C4.376 2.655 5.95 2.616 9.099 2.537a115 115 0 0 1 5.802 0c3.149.079 4.723.118 5.854 1.254s1.164 2.67 1.23 5.737c.009.455.014.668.015.972" />
+              <path stroke-linecap="round" d="M19 17a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0m0 0v.5a1.5 1.5 0 0 0 3 0V17a4.5 4.5 0 1 0-4.5 4.5" />
+            </g>
           </svg>
-          info@romonet.ir
+          shekoftehahmadi@gmail.com
         </a>
       </div>
 
@@ -68,16 +83,20 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
   <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 text-white backdrop-blur-xl">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center gap-3 rounded-xl px-1 py-1" aria-label="رومونت">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center gap-3 rounded-xl px-1 py-1" aria-label="شکفته احمدی">
           <span class="grid h-10 w-10 place-items-center rounded-xl bg-pink-600 text-white shadow-lg shadow-pink-950/30 lg:h-11 lg:w-11">
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" />
-              <path d="m4 9 4.5 11L12 9l3.5 11L20 9" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M20 15c0 1.864 0 2.796-.304 3.53a4 4 0 0 1-2.165 2.165C16.796 21 15.864 21 14 21h-3c-3.772 0-5.658 0-6.83-1.172C3 18.657 3 16.771 3 13V7a4 4 0 0 1 4-4" />
+                <path d="m10 8.5l.434 3.969a.94.94 0 0 0 .552.753c.686.295 1.971.778 3.014.778s2.328-.483 3.014-.778a.94.94 0 0 0 .553-.753L18 8.5m2.5-1v3.77M14 4L7 7l7 3l7-3z" />
+              </g>
             </svg>
+
           </span>
           <span class="hidden sm:block">
-            <span class="block text-base font-extrabold leading-none text-white lg:text-lg">رومونت</span>
-            <span class="mt-0.5 block text-[11px] text-slate-400 lg:mt-1 lg:text-xs">طراحی و توسعه وردپرس</span>
+            <span class="block text-base font-extrabold leading-none text-white lg:text-lg">شکفته احمدی</span>
+            <span class="mt-0.5 block text-[11px] text-slate-400 lg:mt-1 lg:text-xs">آکادمی تخصصی گرافیک</span>
           </span>
         </a>
 
@@ -97,13 +116,18 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
 
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-white/30 hover:text-white xl:inline-flex">مشاوره رایگان</a>
-          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="hidden rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-950/30 transition hover:bg-pink-500 lg:inline-flex">ثبت پروژه</a>
+          <a href="<?php echo esc_url(home_url('/courses/')); ?>" class="hidden rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-950/30 transition hover:bg-pink-500 lg:inline-flex">ثبت‌نام دوره‌ها</a>
 
           <div class="relative" @click.away="cartMenuOpen = false">
-            <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500" @click="cartMenuOpen = !cartMenuOpen; accountMenuOpen = false" :aria-expanded="cartMenuOpen.toString()" aria-haspopup="true" aria-label="نمایش سبد خرید">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+            <button type="button" class="inline-flex cursor-pointer h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500" @click="cartMenuOpen = !cartMenuOpen; accountMenuOpen = false" :aria-expanded="cartMenuOpen.toString()" aria-haspopup="true" aria-label="نمایش سبد خرید">
+              <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" class="h-5 w-5" viewBox="0 0 24 24">
+                <path d="M0 0h24v24H0z" fill="none" />
+                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                  <path d="M10.5 20.25a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0m8.5 0a.75.75 0 1 1-1.5 0a.75.75 0 0 1 1.5 0M2 3h.207c1.324 0 1.987 0 2.419.402s.479 1.063.573 2.384l.251 3.519c.142 1.989.213 2.983.515 3.791a6 6 0 0 0 3.931 3.661c.828.243 1.83.243 3.836.243c2.105 0 3.158 0 4.01-.258a6 6 0 0 0 4-4c.2-.663.245-1.443.255-2.742M12 6H5.5" />
+                  <path d="M18.5 9S15 6.882 15 4.833C15 3.821 15.737 3 16.75 3c.525 0 1.05.176 1.75.882c.7-.706 1.225-.882 1.75-.882C21.263 3 22 3.82 22 4.833C22 6.883 18.5 9 18.5 9" />
+                </g>
               </svg>
+
 
               <?php if ($cart_count) : ?>
                 <span data-romonet-cart-badge class="absolute -right-1 -top-1 h-5 min-w-5 items-center justify-center rounded-full bg-white px-1.5 text-xs font-semibold text-slate-950" style="display:inline-flex"><?php echo esc_html($cart_count); ?></span>
@@ -184,9 +208,15 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
               </div>
             <?php else : ?>
               <a href="<?php echo $account_url; ?>" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/30" aria-label="ورود یا ثبت‌نام">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-5 w-5">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" width="1em" height="1em" viewBox="0 0 24 24">
+                  <path d="M0 0h24v24H0z" fill="none" />
+                  <g fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" d="M13 3.002Q12.295 3 11.5 3C7.022 3 4.782 3 3.391 4.391S2 8.021 2 12.5c0 4.478 0 6.718 1.391 8.109S7.021 22 11.5 22c4.478 0 6.718 0 8.109-1.391S21 16.979 21 12.5q0-.795-.002-1.5" />
+                    <path stroke-linejoin="round" d="m18.5 2l.258.697c.338.914.507 1.371.84 1.704c.334.334.791.503 1.705.841L22 5.5l-.697.258c-.914.338-1.371.507-1.704.84c-.334.334-.503.791-.841 1.705L18.5 9l-.258-.697c-.338-.914-.507-1.371-.84-1.704c-.334-.334-.791-.503-1.705-.841L15 5.5l.697-.258c.914-.338 1.371-.507 1.704-.84c.334-.334.503-.791.841-1.705z" />
+                    <path stroke-linecap="round" d="M7 17.5c2.332-2.442 6.643-2.557 9 0M13.995 10c0 1.38-1.12 2.5-2.503 2.5A2.5 2.5 0 0 1 8.988 10c0-1.38 1.12-2.5 2.504-2.5a2.5 2.5 0 0 1 2.503 2.5Z" />
+                  </g>
                 </svg>
+
               </a>
             <?php endif; ?>
           </div>
@@ -205,7 +235,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
   </header>
 
   <!-- Mobile flyout: slides in from the right -->
-  <div x-cloak x-show="mobileMenuOpen" class="fixed inset-0 z-[60] lg:hidden" role="dialog" aria-modal="true" aria-label="منوی موبایل">
+  <div x-cloak x-show="mobileMenuOpen" class="fixed inset-0 z-60 lg:hidden" role="dialog" aria-modal="true" aria-label="منوی موبایل">
     <div
       x-show="mobileMenuOpen"
       x-transition:enter="transition-opacity ease-out duration-300"
@@ -267,14 +297,14 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
                 'depth'          => 1,
               )
             );
-            remove_filter('nav_menu_link_attributes', 'romonet_top_bar_nav_menu_link_attributes', 10, 4);
+            remove_filter('nav_menu_link_attributes', 'romonet_top_bar_nav_menu_link_attributes', 10);
             ?>
           </nav>
         </div>
 
         <div class="mt-6 space-y-3 border-t border-white/10 pt-6">
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="flex w-full items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-white/30 hover:text-white">مشاوره رایگان</a>
-          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="flex w-full items-center justify-center rounded-full bg-pink-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-950/30">ثبت پروژه</a>
+          <a href="<?php echo esc_url(home_url('/courses/')); ?>" class="flex w-full items-center justify-center rounded-full bg-pink-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-950/30">ثبت‌نام دوره‌ها</a>
         </div>
 
         <div class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm">
@@ -297,7 +327,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
         </div>
 
         <div class="mt-6 space-y-2 border-t border-white/10 pt-6 text-xs text-slate-400">
-          <a href="tel:+982112345678" class="flex items-center gap-2 transition hover:text-white" dir="ltr">
+          <a href="tel:+989354494013" class="flex items-center gap-2 transition hover:text-white" dir="ltr">
             <svg class="h-4 w-4 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
             </svg>

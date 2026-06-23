@@ -2,18 +2,25 @@
 
 get_header();
 
-$home_services_query    = romonet_get_home_services_query(6);
-$home_services_count    = $home_services_query->post_count;
+// کوئری جایگزین برای دریافت جدیدترین پست‌های وردپرس
+$latest_posts_query = new WP_Query(array(
+    'post_type'           => 'post',
+    'posts_per_page'      => 6,
+    'ignore_sticky_posts' => true
+));
+
 $home_portfolio_query   = romonet_get_home_featured_query('portfolio', 3);
 $home_case_study_query  = romonet_get_home_featured_query('case_study', 3);
 $home_products_query    = romonet_get_home_products_query(3);
 $home_testimonials      = romonet_get_home_testimonials(3);
 $home_client_names      = romonet_get_home_client_names(6);
 
-$services_archive_url   = romonet_get_home_archive_url('service');
 $portfolio_archive_url  = romonet_get_home_archive_url('portfolio');
 $case_study_archive_url = romonet_get_home_archive_url('case_study');
 $shop_url               = romonet_get_home_shop_url();
+
+// دریافت آدرس صفحه وبلاگ (نوشته‌ها)
+$blog_archive_url       = get_option('page_for_posts') ? get_permalink(get_option('page_for_posts')) : home_url('/blog/');
 ?>
 
 <main class="bg-white text-slate-900 antialiased">
@@ -27,52 +34,52 @@ $shop_url               = romonet_get_home_shop_url();
             بیش از ۱۲ سال تجربه آموزش دوره های گرافیکی
           </span>
           <h1 class="mt-6 text-balance text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-           یادگیری که به <span class="text-pink-600">کسب‌وکار شما</span> کمک خواهد کرد.
+           یادگیری که به <span class="text-pink-600">مسیر شغلی شما</span> کمک خواهد کرد.
           </h1>
           <p class="mt-5 max-w-xl text-pretty text-lg leading-8 text-slate-600">
-            ما طراحی سایت، فروشگاه ووکامرس، افزونه و قالب اختصاصی، یکپارچه‌سازی پیامک و نگهداری وردپرس را با کیفیتی حرفه‌ای و قابل اتکا انجام می‌دهیم.
+            ما آموزش‌های تخصصی فتوشاپ، ایلوستریتور، ایندیزاین و طراحی رابط کاربری (UI/UX) را با رویکردی پروژه‌محور و ویژه ورود به بازار کار ارائه می‌دهیم.
           </p>
           <div class="mt-8 flex flex-wrap items-center gap-3">
-            <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="inline-flex items-center gap-2 rounded-xl bg-pink-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-pink-700">
-              شروع پروژه
+            <a href="<?php echo esc_url(home_url('/courses/')); ?>" class="inline-flex items-center gap-2 rounded-xl bg-pink-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-pink-700">
+              شروع یادگیری
               <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M19 12H5" />
                 <path d="m12 19-7-7 7-7" />
               </svg>
             </a>
             <a href="<?php echo esc_url($portfolio_archive_url); ?>" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-900 transition hover:bg-slate-50">
-              مشاهده نمونه‌کارها
+              نمونه‌کار دانشجویان
             </a>
           </div>
           <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-slate-200 pt-8">
             <div>
               <dt class="text-3xl font-extrabold text-slate-900">+۴۰۰</dt>
-              <dd class="mt-1 text-sm text-slate-500">پروژه موفق</dd>
+              <dd class="mt-1 text-sm text-slate-500">دانشجوی موفق</dd>
             </div>
             <div>
               <dt class="text-3xl font-extrabold text-slate-900">۹۸٪</dt>
-              <dd class="mt-1 text-sm text-slate-500">رضایت مشتری</dd>
+              <dd class="mt-1 text-sm text-slate-500">رضایت دانشجویان</dd>
             </div>
             <div>
               <dt class="text-3xl font-extrabold text-slate-900">۲۴/۷</dt>
-              <dd class="mt-1 text-sm text-slate-500">پشتیبانی</dd>
+              <dd class="mt-1 text-sm text-slate-500">پشتیبانی آموزشی</dd>
             </div>
           </dl>
         </div>
         <div class="relative">
           <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl shadow-pink-100/40">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hero-dashboard.png'); ?>" alt="نمونه داشبورد مدیریت و سایت طراحی‌شده با وردپرس" class="h-full w-full object-cover" width="900" height="700" />
+            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/img/hero-dashboard.png'); ?>" alt="محیط یادگیری و نرم‌افزارهای گرافیکی" class="h-full w-full object-cover" width="900" height="700" />
           </div>
           <div class="absolute -bottom-5 -left-5 hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-xl shadow-pink-100/40 sm:block">
             <div class="flex items-center gap-3">
               <span class="grid h-11 w-11 place-items-center rounded-xl bg-cyan-50 text-cyan-600">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                  <path d="m12 3 1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1z" />
+                  <path d="M12 2l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" />
                 </svg>
               </span>
               <div>
-                <p class="text-sm font-bold text-slate-900">امتیاز سرعت ۹۸</p>
-                <p class="text-xs text-slate-500">Core Web Vitals سبز</p>
+                <p class="text-sm font-bold text-slate-900">ارائه مدرک معتبر</p>
+                <p class="text-xs text-slate-500">دوره‌های پروژه‌محور و عملی</p>
               </div>
             </div>
           </div>
@@ -81,7 +88,7 @@ $shop_url               = romonet_get_home_shop_url();
 
       <?php if (! empty($home_client_names)) : ?>
         <div class="mt-16 border-t border-slate-200 pt-8">
-          <p class="text-center text-sm font-medium text-slate-500">مورد اعتماد برندها و کسب‌وکارهای پیشرو</p>
+          <p class="text-center text-sm font-medium text-slate-500">مورد اعتماد برندها و آژانس‌های تبلیغاتی پیشرو</p>
           <div class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-70">
             <?php foreach ($home_client_names as $client_name) : ?>
               <span class="text-xl font-extrabold tracking-tight text-slate-400"><?php echo esc_html($client_name); ?></span>
@@ -92,17 +99,18 @@ $shop_url               = romonet_get_home_shop_url();
     </div>
   </section>
 
+  <!-- بخش آخرین مقالات (جایگزین شده با بخش خدمات) -->
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">خدمات ما</span>
-        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">هر آنچه برای موفقیت در وردپرس نیاز دارید</h2>
-        <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">از ایده تا اجرا و نگهداری؛ تیم ما تمام چرخه عمر پروژه وردپرسی شما را پوشش می‌دهد.</p>
+        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">مقالات و آموزش‌ها</span>
+        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">به‌روزترین آموزش‌های دنیای گرافیک</h2>
+        <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">جدیدترین ترفندها، اخبار و مقالات آموزشی نرم‌افزارهای طراحی را در وبلاگ ما بخوانید.</p>
       </div>
 
       <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <?php if ($home_services_query->have_posts()) : ?>
-          <?php while ($home_services_query->have_posts()) : $home_services_query->the_post(); ?>
+        <?php if ($latest_posts_query->have_posts()) : ?>
+          <?php while ($latest_posts_query->have_posts()) : $latest_posts_query->the_post(); ?>
             <a href="<?php the_permalink(); ?>" class="group rounded-2xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/40">
               <span class="grid h-12 w-12 place-items-center rounded-xl bg-pink-50 text-pink-600 transition group-hover:bg-pink-600 group-hover:text-white">
                 <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -111,7 +119,7 @@ $shop_url               = romonet_get_home_shop_url();
               </span>
               <h3 class="mt-5 text-lg font-bold text-slate-900"><?php the_title(); ?></h3>
               <p class="mt-2 text-sm leading-7 text-slate-600"><?php echo esc_html(romonet_get_post_summary(get_the_ID(), 20)); ?></p>
-              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">اطلاعات بیشتر
+              <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">مطالعه مقاله
                 <svg class="h-4 w-4 transition group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                   <path d="M19 12H5" />
                   <path d="m12 19-7-7 7-7" />
@@ -123,9 +131,9 @@ $shop_url               = romonet_get_home_shop_url();
         <?php endif; ?>
       </div>
 
-      <?php if ($home_services_count > 0) : ?>
+      <?php if ($latest_posts_query->post_count > 0) : ?>
         <div class="mt-10 text-center">
-          <a href="<?php echo esc_url($services_archive_url); ?>" class="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600 hover:text-pink-700">مشاهده همه خدمات
+          <a href="<?php echo esc_url($blog_archive_url); ?>" class="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600 hover:text-pink-700">مشاهده همه مقالات
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M19 12H5" />
               <path d="m12 19-7-7 7-7" />
@@ -140,52 +148,52 @@ $shop_url               = romonet_get_home_shop_url();
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="grid items-center gap-14 lg:grid-cols-2">
         <div>
-          <span class="text-sm font-bold uppercase tracking-wider text-pink-600">چرا رومونت</span>
-          <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">کدِ تمیز، تحویل به‌موقع، پشتیبانی واقعی</h2>
-          <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">ما فقط سایت نمی‌سازیم؛ شریک فنی بلندمدت شما هستیم. تمرکز ما بر کیفیت کد، امنیت و رشد پایدار کسب‌وکار شماست.</p>
+          <span class="text-sm font-bold uppercase tracking-wider text-pink-600">چرا آکادمی ما</span>
+          <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">آموزش اصولی، پروژه‌محور، پشتیبانی واقعی</h2>
+          <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">ما فقط نرم‌افزار آموزش نمی‌دهیم؛ شما را برای ورود به بازار کار طراحی گرافیک آماده می‌کنیم. تمرکز ما بر مهارت‌آموزی، خلاقیت و رشد حرفه‌ای شماست.</p>
           <ul class="mt-8 space-y-4">
             <li class="flex items-start gap-3">
               <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-cyan-100 text-cyan-700"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                   <path d="m20 6-11 11-5-5" />
                 </svg></span>
-              <p class="text-slate-600"><span class="font-bold text-slate-900">کدنویسی استاندارد:</span> رعایت استانداردهای رسمی وردپرس و کد قابل نگهداری.</p>
+              <p class="text-slate-600"><span class="font-bold text-slate-900">اساتید مجرب:</span> تدریس توسط طراحان حرفه‌ای با سابقه کار در صنعت.</p>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-cyan-100 text-cyan-700"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                   <path d="m20 6-11 11-5-5" />
                 </svg></span>
-              <p class="text-slate-600"><span class="font-bold text-slate-900">سرعت و سئو:</span> بهینه‌سازی Core Web Vitals و ساختار فنی سئو.</p>
+              <p class="text-slate-600"><span class="font-bold text-slate-900">پروژه‌محور:</span> یادگیری از طریق انجام پروژه‌های واقعی و کاربردی.</p>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-cyan-100 text-cyan-700"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                   <path d="m20 6-11 11-5-5" />
                 </svg></span>
-              <p class="text-slate-600"><span class="font-bold text-slate-900">امنیت چندلایه:</span> سخت‌سازی، پشتیبان‌گیری منظم و مانیتورینگ مداوم.</p>
+              <p class="text-slate-600"><span class="font-bold text-slate-900">پشتیبانی آموزشی:</span> رفع اشکال و راهنمایی مستمر در طول دوره.</p>
             </li>
             <li class="flex items-start gap-3">
               <span class="mt-0.5 grid h-6 w-6 shrink-0 place-items-center rounded-full bg-cyan-100 text-cyan-700"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true">
                   <path d="m20 6-11 11-5-5" />
                 </svg></span>
-              <p class="text-slate-600"><span class="font-bold text-slate-900">شفافیت کامل:</span> گزارش پیشرفت منظم و ارتباط مستقیم با تیم فنی.</p>
+              <p class="text-slate-600"><span class="font-bold text-slate-900">ارائه مدرک:</span> دریافت گواهینامه معتبر پس از پایان دوره.</p>
             </li>
           </ul>
         </div>
         <div class="grid grid-cols-2 gap-5">
           <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p class="text-4xl font-extrabold text-pink-600">۴۰۰+</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">پروژه تحویل‌شده در صنایع مختلف</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">دانشجوی وارد شده به بازار کار</p>
           </div>
           <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p class="text-4xl font-extrabold text-pink-600">۱۲</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">سال تجربه تخصصی در اکوسیستم وردپرس</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">سال تجربه تخصصی در آموزش گرافیک</p>
           </div>
           <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p class="text-4xl font-extrabold text-pink-600">۲۴h</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">میانگین زمان پاسخ‌گویی پشتیبانی</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">پاسخگویی و رفع اشکال دانشجویان</p>
           </div>
           <div class="mt-8 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
             <p class="text-4xl font-extrabold text-pink-600">۹۸٪</p>
-            <p class="mt-2 text-sm leading-6 text-slate-600">نرخ رضایت و بازگشت مشتریان</p>
+            <p class="mt-2 text-sm leading-6 text-slate-600">نرخ رضایت دانشجویان از دوره‌ها</p>
           </div>
         </div>
       </div>
@@ -195,69 +203,26 @@ $shop_url               = romonet_get_home_shop_url();
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">فرایند همکاری</span>
-        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">از گفت‌وگو تا تحویل، شفاف و حرفه‌ای</h2>
+        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">مسیر یادگیری شما</span>
+        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">از صفر تا ورود به بازار کار</h2>
       </div>
       <div class="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-extrabold text-pink-600">۰۱</span>
-          <h3 class="mt-3 text-lg font-bold text-slate-900">مشاوره و کشف نیاز</h3>
-          <p class="mt-2 text-sm leading-7 text-slate-600">بررسی اهداف، مخاطب و الزامات فنی پروژه شما.</p>
+          <h3 class="mt-3 text-lg font-bold text-slate-900">مشاوره و ثبت‌نام</h3>
+          <p class="mt-2 text-sm leading-7 text-slate-600">بررسی سطح شما و انتخاب بهترین دوره آموزشی.</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-extrabold text-pink-600">۰۲</span>
-          <h3 class="mt-3 text-lg font-bold text-slate-900">طراحی و معماری</h3>
-          <p class="mt-2 text-sm leading-7 text-slate-600">طراحی رابط کاربری و معماری فنی متناسب با مقیاس کار.</p>
+          <h3 class="mt-3 text-lg font-bold text-slate-900">آموزش و تمرین</h3>
+          <p class="mt-2 text-sm leading-7 text-slate-600">شرکت در کلاس‌ها و انجام تمرین‌های عملی نرم‌افزار.</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-extrabold text-pink-600">۰۳</span>
-          <h3 class="mt-3 text-lg font-bold text-slate-900">توسعه و تست</h3>
-          <p class="mt-2 text-sm leading-7 text-slate-600">کدنویسی، تست کیفیت و بازبینی در محیط آزمایشی.</p>
+          <h3 class="mt-3 text-lg font-bold text-slate-900">انجام پروژه</h3>
+          <p class="mt-2 text-sm leading-7 text-slate-600">پیاده‌سازی یک پروژه جامع برای ساخت پورتفولیو.</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"><span class="text-sm font-extrabold text-pink-600">۰۴</span>
-          <h3 class="mt-3 text-lg font-bold text-slate-900">تحویل و پشتیبانی</h3>
-          <p class="mt-2 text-sm leading-7 text-slate-600">انتشار نهایی، آموزش و پشتیبانی مستمر پس از تحویل.</p>
+          <h3 class="mt-3 text-lg font-bold text-slate-900">ورود به بازار کار</h3>
+          <p class="mt-2 text-sm leading-7 text-slate-600">دریافت مدرک و مشاوره برای استخدام یا فریلنسری.</p>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="border-y border-slate-200 bg-slate-50 py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
-        <div class="max-w-xl">
-          <span class="text-sm font-bold uppercase tracking-wider text-pink-600">نمونه‌کارها</span>
-          <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">پروژه‌هایی که به آن‌ها افتخار می‌کنیم</h2>
-        </div>
-        <a href="<?php echo esc_url($portfolio_archive_url); ?>" class="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600 hover:text-pink-700">مشاهده همه
-          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <path d="M19 12H5" />
-            <path d="m12 19-7-7 7-7" />
-          </svg>
-        </a>
-      </div>
-      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        <?php if ($home_portfolio_query->have_posts()) : ?>
-          <?php
-          $portfolio_index = 0;
-          while ($home_portfolio_query->have_posts()) :
-            $home_portfolio_query->the_post();
-            $portfolio_image = get_the_post_thumbnail_url(get_the_ID(), 'romonet-card');
-            if (! $portfolio_image) {
-              $portfolio_image = romonet_get_portfolio_fallback_image($portfolio_index);
-            }
-            $portfolio_index++;
-          ?>
-            <a href="<?php the_permalink(); ?>" class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl hover:shadow-pink-100/40">
-              <div class="aspect-4/3 overflow-hidden bg-slate-100">
-                <img src="<?php echo esc_url($portfolio_image); ?>" alt="<?php the_title_attribute(); ?>" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" loading="lazy" />
-              </div>
-              <div class="p-6">
-                <span class="text-xs font-semibold text-cyan-600"><?php echo esc_html(romonet_get_portfolio_term_label()); ?></span>
-                <h3 class="mt-1.5 text-lg font-bold text-slate-900"><?php the_title(); ?></h3>
-                <p class="mt-1 text-sm text-slate-600"><?php echo esc_html(romonet_get_post_summary(get_the_ID(), 16)); ?></p>
-              </div>
-            </a>
-          <?php endwhile; ?>
-          <?php wp_reset_postdata(); ?>
-        <?php endif; ?>
       </div>
     </div>
   </section>
@@ -267,8 +232,8 @@ $shop_url               = romonet_get_home_shop_url();
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div class="max-w-xl">
-            <span class="text-sm font-bold uppercase tracking-wider text-pink-600">مطالعات موردی</span>
-            <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">نتایج واقعی برای کسب‌وکارهای ایرانی</h2>
+            <span class="text-sm font-bold uppercase tracking-wider text-pink-600">داستان موفقیت</span>
+            <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">مسیر رشد دانشجویان ما در بازار کار</h2>
           </div>
           <a href="<?php echo esc_url($case_study_archive_url); ?>" class="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600 hover:text-pink-700">مشاهده همه
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -302,9 +267,9 @@ $shop_url               = romonet_get_home_shop_url();
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-end">
           <div class="max-w-xl">
-            <span class="text-sm font-bold uppercase tracking-wider text-pink-600">محصولات دیجیتال</span>
-            <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">قالب، افزونه و ابزار آماده وردپرس</h2>
-            <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">محصولات تست‌شده با پشتیبانی فارسی؛ برای شروع سریع‌تر پروژه‌های شما.</p>
+            <span class="text-sm font-bold uppercase tracking-wider text-pink-600">ابزارهای گرافیکی</span>
+            <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">فایل‌های لایه‌باز و منابع طراحی</h2>
+            <p class="mt-4 text-pretty text-lg leading-8 text-slate-600">مجموعه‌ای از براش‌ها، موکاپ‌ها و ابزارهای مورد نیاز برای طراحان.</p>
           </div>
           <a href="<?php echo esc_url($shop_url); ?>" class="inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600 hover:text-pink-700">مشاهده فروشگاه
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -335,8 +300,8 @@ $shop_url               = romonet_get_home_shop_url();
   <section class="py-20 lg:py-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="mx-auto max-w-2xl text-center">
-        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">نظر مشتریان</span>
-        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">چرا کسب‌وکارها به ما اعتماد می‌کنند</h2>
+        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">نظرات دانشجویان</span>
+        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">چرا هنرجویان آکادمی ما را انتخاب می‌کنند</h2>
       </div>
         <div class="mt-14 grid gap-6 lg:grid-cols-3">
           <?php foreach ($home_testimonials as $testimonial_post) : ?>
@@ -345,7 +310,7 @@ $shop_url               = romonet_get_home_shop_url();
             $client_name   = get_post_meta($testimonial_post->ID, 'client_name', true);
             $project_title = get_the_title($testimonial_post);
             $display_name  = $client_name ?: $project_title;
-            $display_role  = $client_name ? $project_title : 'مشتری رومونت';
+            $display_role  = $client_name ? $project_title : 'دانشجوی آکادمی';
             ?>
             <figure class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
               <div class="flex gap-1 text-pink-400" aria-hidden="true">
@@ -375,11 +340,11 @@ $shop_url               = romonet_get_home_shop_url();
       <div class="relative overflow-hidden rounded-3xl bg-pink-700 px-6 py-14 text-center shadow-xl shadow-pink-200/50 sm:px-12 lg:py-20">
         <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(255_255_255/0.25)_1px,transparent_0)] bg-size-[20px_20px] opacity-20" aria-hidden="true"></div>
         <div class="relative mx-auto max-w-2xl">
-          <h2 class="text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl">آماده‌اید پروژه وردپرسی‌تان را شروع کنیم؟</h2>
-          <p class="mt-4 text-pretty text-lg leading-8 text-pink-100">همین حالا درخواست خود را ثبت کنید؛ کارشناسان ما در کمتر از ۲۴ ساعت با شما تماس می‌گیرند.</p>
+          <h2 class="text-balance text-3xl font-extrabold tracking-tight text-white sm:text-4xl">آماده‌اید مسیر حرفه‌ای خود را در گرافیک شروع کنید؟</h2>
+          <p class="mt-4 text-pretty text-lg leading-8 text-pink-100">همین حالا در دوره‌های ما ثبت‌نام کنید و مهارت‌های خود را به سطح بعدی ببرید.</p>
           <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-pink-700 shadow-sm transition hover:bg-pink-50">ثبت درخواست پروژه</a>
-            <a href="<?php echo esc_url(home_url('/pricing/')); ?>" class="rounded-xl border border-white/30 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10">مشاهده تعرفه‌ها</a>
+            <a href="<?php echo esc_url(home_url('/consultation/')); ?>" class="rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-pink-700 shadow-sm transition hover:bg-pink-50">مشاوره رایگان</a>
+            <a href="<?php echo esc_url(home_url('/courses/')); ?>" class="rounded-xl border border-white/30 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10">مشاهده دوره‌ها</a>
           </div>
         </div>
       </div>

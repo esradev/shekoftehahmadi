@@ -16,9 +16,9 @@ get_header();
 
     $hero_highlights = array_filter(
       array(
-        $meta['article_type_label'] ? sprintf(__('Type: %s', 'romonet'), $meta['article_type_label']) : '',
-        $meta['difficulty_label'] ? sprintf(__('Level: %s', 'romonet'), $meta['difficulty_label']) : '',
-        sprintf(__('%d min read', 'romonet'), $meta['reading_time']),
+        $meta['article_type_label'] ? sprintf('نوع آموزش: %s', $meta['article_type_label']) : '',
+        $meta['difficulty_label'] ? sprintf('سطح: %s', $meta['difficulty_label']) : '',
+        sprintf('%d دقیقه مطالعه', $meta['reading_time']),
       )
     );
 
@@ -59,12 +59,12 @@ get_header();
 
               <?php if ($meta['audience']) : ?>
                 <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-2 font-medium">
-                  <?php echo esc_html(sprintf(__('Audience: %s', 'romonet'), $meta['audience'])); ?>
+                  <?php echo esc_html(sprintf('مخاطب: %s', $meta['audience'])); ?>
                 </span>
               <?php endif; ?>
 
               <span class="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-2 font-medium">
-                <?php echo esc_html(sprintf(_n('%d comment', '%d comments', $comment_count, 'romonet'), $comment_count)); ?>
+                <?php echo esc_html(sprintf('%d دیدگاه', $comment_count)); ?>
               </span>
             </div>
 
@@ -79,13 +79,13 @@ get_header();
             </div>
 
             <div class="flex flex-wrap items-center gap-3">
-              <a href="#article-content" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 sm:text-base"><?php esc_html_e('Read article', 'romonet'); ?></a>
+              <a href="#article-content" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 sm:text-base">مطالعه آموزش</a>
               <?php if ($meta['related_url']) : ?>
                 <a href="<?php echo esc_url($meta['related_url']); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-pink-200 bg-pink-50 px-7 py-3 text-sm font-semibold text-pink-700 transition hover:bg-pink-100 sm:text-base">
-                  <?php echo esc_html($meta['related_url_label'] ? $meta['related_url_label'] : __('Related resource', 'romonet')); ?>
+                  <?php echo esc_html($meta['related_url_label'] ? $meta['related_url_label'] : 'منبع مرتبط'); ?>
                 </a>
               <?php endif; ?>
-              <a href="#article-comments" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 sm:text-base"><?php esc_html_e('Join discussion', 'romonet'); ?></a>
+              <a href="#article-comments" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 sm:text-base">شرکت در بحث</a>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ get_header();
         <div class="space-y-8">
           <?php if (! empty($meta['key_takeaways'])) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
-              <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Key takeaways', 'romonet'); ?></h2>
+              <h2 class="text-2xl font-bold text-slate-900">آنچه یاد می‌گیرید</h2>
               <ul class="mt-6 grid gap-3 text-sm leading-7 text-slate-700 sm:text-base">
                 <?php foreach ($meta['key_takeaways'] as $takeaway) : ?>
                   <li class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
@@ -125,7 +125,7 @@ get_header();
 
           <?php if (! empty($meta['prerequisites'])) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
-              <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Before you start', 'romonet'); ?></h2>
+              <h2 class="text-2xl font-bold text-slate-900">پیشنیازها</h2>
               <ul class="mt-6 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
                 <?php foreach ($meta['prerequisites'] as $prerequisite) : ?>
                   <li class="flex items-start gap-3">
@@ -138,7 +138,7 @@ get_header();
           <?php endif; ?>
 
           <section id="article-content" class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
-            <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Article', 'romonet'); ?></h2>
+            <h2 class="text-2xl font-bold text-slate-900">متن آموزش</h2>
             <div class="prose prose-slate mt-6 max-w-none">
               <?php the_content(); ?>
             </div>
@@ -146,7 +146,7 @@ get_header();
 
           <?php if (! empty($meta['technologies'])) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
-              <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Tools & technologies', 'romonet'); ?></h2>
+              <h2 class="text-2xl font-bold text-slate-900">نرم‌افزارها و ابزارها</h2>
               <div class="mt-5 flex flex-wrap gap-2">
                 <?php foreach ($meta['technologies'] as $technology) : ?>
                   <span class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700"><?php echo esc_html($technology); ?></span>
@@ -158,25 +158,25 @@ get_header();
           <section id="article-comments" class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
             <div class="mb-6 flex flex-wrap items-end justify-between gap-3">
               <div>
-                <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Reader feedback', 'romonet'); ?></h2>
-                <p class="mt-2 text-sm text-slate-600"><?php esc_html_e('Questions, corrections, and practical experiences from the community.', 'romonet'); ?></p>
+                <h2 class="text-2xl font-bold text-slate-900">نظرات دانشجویان</h2>
+                <p class="mt-2 text-sm text-slate-600">سوالات، رفع اشکال و تجربیات هنرجویان آکادمی.</p>
               </div>
               <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700">
-                <?php echo esc_html(sprintf(_n('%d comment', '%d comments', $comment_count, 'romonet'), $comment_count)); ?>
+                <?php echo esc_html(sprintf('%d دیدگاه', $comment_count)); ?>
               </div>
             </div>
 
             <?php if (comments_open() || $comment_count > 0) : ?>
               <?php comments_template(); ?>
             <?php else : ?>
-              <p class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600"><?php esc_html_e('Comments are currently disabled for this article.', 'romonet'); ?></p>
+              <p class="rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">بخش نظرات برای این مقاله غیرفعال است.</p>
             <?php endif; ?>
           </section>
 
           <?php if ($related_query->have_posts()) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm sm:p-8">
-              <h2 class="text-2xl font-bold text-slate-900"><?php esc_html_e('Related articles', 'romonet'); ?></h2>
-              <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              <h2 class="text-2xl font-bold text-slate-900">آموزش‌های مرتبط</h2>
+              <div class="mt-8 grid gap-6 md:grid-cols-2">
                 <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
                   <?php get_template_part('template-parts/cards/post-card'); ?>
                 <?php endwhile; ?>
@@ -188,53 +188,53 @@ get_header();
 
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <section class="rounded-4xl bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Article details', 'romonet'); ?></h2>
+            <h2 class="text-lg font-bold text-slate-900">جزئیات آموزش</h2>
             <dl class="mt-5 space-y-4 text-sm">
               <?php if ($meta['article_type_label']) : ?>
                 <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
-                  <dt class="text-slate-500"><?php esc_html_e('Format', 'romonet'); ?></dt>
+                  <dt class="text-slate-500">فرمت</dt>
                   <dd class="font-semibold text-slate-900"><?php echo esc_html($meta['article_type_label']); ?></dd>
                 </div>
               <?php endif; ?>
 
               <?php if ($meta['difficulty_label']) : ?>
                 <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
-                  <dt class="text-slate-500"><?php esc_html_e('Difficulty', 'romonet'); ?></dt>
+                  <dt class="text-slate-500">سطح آموزش</dt>
                   <dd class="font-semibold text-slate-900"><?php echo esc_html($meta['difficulty_label']); ?></dd>
                 </div>
               <?php endif; ?>
 
               <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
-                <dt class="text-slate-500"><?php esc_html_e('Reading time', 'romonet'); ?></dt>
-                <dd class="font-semibold text-slate-900"><?php echo esc_html(sprintf(__('%d minutes', 'romonet'), $meta['reading_time'])); ?></dd>
+                <dt class="text-slate-500">زمان مطالعه</dt>
+                <dd class="font-semibold text-slate-900"><?php echo esc_html(sprintf('%d دقیقه', $meta['reading_time'])); ?></dd>
               </div>
 
               <div class="flex items-start justify-between gap-4 border-b border-slate-100 pb-3">
-                <dt class="text-slate-500"><?php esc_html_e('Published', 'romonet'); ?></dt>
+                <dt class="text-slate-500">تاریخ انتشار</dt>
                 <dd class="font-semibold text-slate-900"><?php echo esc_html(get_the_date()); ?></dd>
               </div>
 
               <div class="flex items-start justify-between gap-4">
-                <dt class="text-slate-500"><?php esc_html_e('Updated', 'romonet'); ?></dt>
+                <dt class="text-slate-500">آخرین بروزرسانی</dt>
                 <dd class="font-semibold text-slate-900"><?php echo esc_html(get_the_modified_date()); ?></dd>
               </div>
             </dl>
           </section>
 
           <section class="rounded-4xl bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Search the blog', 'romonet'); ?></h2>
+            <h2 class="text-lg font-bold text-slate-900">جستجو در آموزش‌ها</h2>
             <form role="search" method="get" action="<?php echo esc_url(home_url('/')); ?>" class="mt-4">
-              <label for="single-post-search" class="sr-only"><?php esc_html_e('Search', 'romonet'); ?></label>
+              <label for="single-post-search" class="sr-only">جستجو</label>
               <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                <input id="single-post-search" type="search" name="s" placeholder="<?php esc_attr_e('Topic or keyword', 'romonet'); ?>" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
-                <button type="submit" class="rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500"><?php esc_html_e('Go', 'romonet'); ?></button>
+                <input id="single-post-search" type="search" name="s" placeholder="موضوع یا کلمه کلیدی..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
+                <button type="submit" class="rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500">بگرد</button>
               </div>
             </form>
           </section>
 
           <?php if (! empty($categories)) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm">
-              <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Categories', 'romonet'); ?></h2>
+              <h2 class="text-lg font-bold text-slate-900">دسته‌بندی‌ها</h2>
               <ul class="mt-4 space-y-3 text-sm text-slate-600">
                 <?php foreach ($categories as $category) : ?>
                   <li>
@@ -247,7 +247,7 @@ get_header();
 
           <?php if ($tags) : ?>
             <section class="rounded-4xl bg-white p-6 shadow-sm">
-              <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Tags', 'romonet'); ?></h2>
+              <h2 class="text-lg font-bold text-slate-900">برچسب‌ها</h2>
               <div class="mt-4 flex flex-wrap gap-2">
                 <?php foreach ($tags as $tag) : ?>
                   <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
@@ -259,10 +259,10 @@ get_header();
           <?php endif; ?>
 
           <section class="rounded-4xl border border-pink-100 bg-linear-to-br from-pink-50 to-cyan-50 p-6 shadow-sm">
-            <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Need help implementing this?', 'romonet'); ?></h2>
-            <p class="mt-3 text-sm leading-7 text-slate-600"><?php esc_html_e('Our team can audit, build, or optimize your WordPress project based on the strategy in this article.', 'romonet'); ?></p>
-            <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-pink-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
-              <?php esc_html_e('Request a project quote', 'romonet'); ?>
+            <h2 class="text-lg font-bold text-slate-900">نیاز به راهنمایی بیشتر دارید؟</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-600">برای یادگیری اصولی و عملی این مباحث، می‌توانید در دوره‌های جامع آکادمی ما شرکت کنید.</p>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-pink-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
+              مشاوره و ثبت‌نام دوره‌ها
             </a>
           </section>
         </aside>

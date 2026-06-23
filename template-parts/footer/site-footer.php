@@ -13,17 +13,20 @@ if (! defined('ABSPATH')) {
   <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
       <div class="lg:col-span-2">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-2.5" aria-label="رومونت">
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-2.5" aria-label="شکفته احمدی">
           <span class="grid h-10 w-10 place-items-center rounded-xl bg-pink-600 text-white">
-            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" />
-              <path d="m4 9 4.5 11L12 9l3.5 11L20 9" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+              <path d="M0 0h24v24H0z" fill="none" />
+              <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5">
+                <path d="M20 15c0 1.864 0 2.796-.304 3.53a4 4 0 0 1-2.165 2.165C16.796 21 15.864 21 14 21h-3c-3.772 0-5.658 0-6.83-1.172C3 18.657 3 16.771 3 13V7a4 4 0 0 1 4-4" />
+                <path d="m10 8.5l.434 3.969a.94.94 0 0 0 .552.753c.686.295 1.971.778 3.014.778s2.328-.483 3.014-.778a.94.94 0 0 0 .553-.753L18 8.5m2.5-1v3.77M14 4L7 7l7 3l7-3z" />
+              </g>
             </svg>
           </span>
-          <span class="text-lg font-extrabold text-white">رومونت</span>
+          <span class="text-lg font-extrabold text-white">شکفته احمدی</span>
         </a>
         <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">
-          استودیو تخصصی توسعه وردپرس؛ از طراحی سایت و فروشگاه ووکامرس تا افزونه و قالب اختصاصی، یکپارچه‌سازی پیامک و نگهداری حرفه‌ای.
+          آکادمی تخصصی آموزش طراحی گرافیک، ارائه دوره‌های کاربردی و پروژه‌محور فتوشاپ، ایلوستریتور، طراحی رابط کاربری (UI/UX) و آماده‌سازی دانشجویان برای ورود قدرتمند به بازار کار.
         </p>
         <div class="mt-6 flex items-center gap-3">
           <a href="#" aria-label="لینکدین" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition hover:border-white/30 hover:text-white">
@@ -33,7 +36,7 @@ if (! defined('ABSPATH')) {
           </a>
           <a href="#" aria-label="تلگرام" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition hover:border-white/30 hover:text-white">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M21.9 4.3 18.6 19.9c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5.5-1.02.5l.36-5.16 9.4-8.49c.4-.36-.09-.56-.63-.2L5.16 13.1.16 11.5c-1.08-.34-1.1-1.08.23-1.6L20.5 2.7c.9-.33 1.69.2 1.4 1.6Z" />
+              <path d="M21.9 4.3 18.6 19.9c-.25 1.1-.9 1.37-1.83.85l-5.05-3.72-2.44 2.35c-.27.27-.5-1.02.5l.36-5.16 9.4-8.49c.4-.36-.09-.56-.63-.2L5.16 13.1.16 11.5c-1.08-.34-1.1-1.08.23-1.6L20.5 2.7c.9-.33 1.69.2 1.4 1.6Z" />
             </svg>
           </a>
           <a href="#" aria-label="اینستاگرام" class="grid h-10 w-10 place-items-center rounded-xl border border-white/10 text-slate-300 transition hover:border-white/30 hover:text-white">
@@ -52,42 +55,32 @@ if (! defined('ABSPATH')) {
       </div>
 
       <div>
-        <h3 class="text-sm font-bold text-white">خدمات</h3>
+        <h3 class="text-sm font-bold text-white">آخرین مقالات</h3>
         <ul class="mt-4 space-y-3 text-sm">
           <?php
-          $service_posts = get_posts(
+          // تغییر کوئری به نوشته‌ها (post) برای نمایش آخرین مقالات وبلاگ
+          $latest_posts = get_posts(
             array(
-              'post_type'      => 'service',
-              'posts_per_page' => 6,
+              'post_type'      => 'post',
+              'posts_per_page' => 4,
               'post_status'    => 'publish',
               'orderby'        => 'date',
               'order'          => 'DESC',
             )
           );
 
-          if ($service_posts) :
-            foreach ($service_posts as $post) :
+            foreach ($latest_posts as $post) :
               setup_postdata($post);
           ?>
               <li><a href="<?php echo esc_url(get_permalink($post)); ?>" class="text-slate-400 transition hover:text-white"><?php echo esc_html(get_the_title($post)); ?></a></li>
             <?php
             endforeach;
-            wp_reset_postdata();
-          else :
-            ?>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">طراحی سایت وردپرس</a></li>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">توسعه افزونه اختصاصی</a></li>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">طراحی قالب اختصاصی</a></li>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">فروشگاه ووکامرس</a></li>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">یکپارچه‌سازی پیامک</a></li>
-            <li><a href="<?php echo esc_url(home_url('/services/')); ?>" class="text-slate-400 transition hover:text-white">نگهداری و بهینه‌سازی</a></li>
-          <?php endif; ?>
+            wp_reset_postdata(); ?>
         </ul>
       </div>
 
       <div>
-        <h3 class="text-sm font-bold text-white">شرکت</h3>
-        <?php if (has_nav_menu('footer')) : ?>
+        <h3 class="text-sm font-bold text-white">آکادمی</h3>
           <?php
           add_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10, 4);
           wp_nav_menu(
@@ -99,23 +92,12 @@ if (! defined('ABSPATH')) {
               'depth'          => 1,
             )
           );
-          remove_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10, 4);
+          remove_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10);
           ?>
-        <?php else : ?>
-          <ul class="mt-4 space-y-3 text-sm">
-            <li><a href="<?php echo esc_url(home_url('/about/')); ?>" class="text-slate-400 transition hover:text-white">درباره ما</a></li>
-            <li><a href="<?php echo esc_url(home_url('/portfolio/')); ?>" class="text-slate-400 transition hover:text-white">نمونه‌کارها</a></li>
-            <li><a href="<?php echo esc_url(home_url('/case_study/')); ?>" class="text-slate-400 transition hover:text-white">مطالعات موردی</a></li>
-            <li><a href="<?php echo esc_url(home_url('/pricing/')); ?>" class="text-slate-400 transition hover:text-white">تعرفه‌ها</a></li>
-            <li><a href="<?php echo esc_url(home_url('/blog/')); ?>" class="text-slate-400 transition hover:text-white">وبلاگ</a></li>
-            <li><a href="<?php echo esc_url(home_url('/contact/')); ?>" class="text-slate-400 transition hover:text-white">تماس با ما</a></li>
-          </ul>
-        <?php endif; ?>
       </div>
 
       <div>
         <h3 class="text-sm font-bold text-white">منابع</h3>
-        <?php if (has_nav_menu('legal')) : ?>
           <?php
           add_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10, 4);
           wp_nav_menu(
@@ -127,16 +109,8 @@ if (! defined('ABSPATH')) {
               'depth'          => 1,
             )
           );
-          remove_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10, 4);
+          remove_filter('nav_menu_link_attributes', 'romonet_footer_nav_menu_link_attributes', 10);
           ?>
-        <?php else : ?>
-          <ul class="mt-4 space-y-3 text-sm">
-            <li><a href="<?php echo esc_url(home_url('/faq/')); ?>" class="text-slate-400 transition hover:text-white">سوالات متداول</a></li>
-            <li><a href="<?php echo esc_url(home_url('/documentation/')); ?>" class="text-slate-400 transition hover:text-white">مستندات</a></li>
-            <li><a href="<?php echo esc_url(home_url('/shop/')); ?>" class="text-slate-400 transition hover:text-white">محصولات آماده</a></li>
-            <li><a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="text-slate-400 transition hover:text-white">درخواست پروژه</a></li>
-          </ul>
-        <?php endif; ?>
       </div>
     </div>
 
@@ -147,10 +121,10 @@ if (! defined('ABSPATH')) {
             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
-            خبرنامه رومونت
+            خبرنامه شکفته احمدی
           </span>
           <p class="mt-4 text-sm leading-7 text-slate-400">
-            هر هفته نکات فنی وردپرس، به‌روزرسانی‌های محصول و پیشنهادهای ویژه را دریافت کنید.
+            هر هفته جدیدترین ترفندهای گرافیکی، معرفی ابزارهای طراحی و پیشنهادهای ویژه دوره‌ها را دریافت کنید.
           </p>
         </div>
 
@@ -174,7 +148,7 @@ if (! defined('ABSPATH')) {
     </div>
 
     <div class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-sm text-slate-500 sm:flex-row">
-      <p>© <?php echo esc_html(date_i18n('Y')); ?> رومونت. تمامی حقوق محفوظ است.</p>
+      <p>© <?php echo esc_html(date_i18n('Y')); ?> شکفته احمدی. تمامی حقوق محفوظ است.</p>
       <div class="flex items-center gap-5">
         <a href="<?php echo esc_url(home_url('/terms/')); ?>" class="transition hover:text-white">قوانین و مقررات</a>
         <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>" class="transition hover:text-white">حریم خصوصی</a>

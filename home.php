@@ -16,10 +16,10 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
     'template-parts/sections/page-hero',
     null,
     array(
-      'current'     => __('Blog', 'romonet'),
-      'badge'       => __('Knowledge Base', 'romonet'),
-      'title'       => __('Practical WordPress insights for serious businesses', 'romonet'),
-      'description' => __('Technical analysis, SEO guidance, development lessons, and decision frameworks from our agency team.', 'romonet'),
+      'current'     => 'مقالات آموزشی',
+      'badge'       => 'پایگاه دانش گرافیک',
+      'title'       => 'آموزش‌های کاربردی گرافیک برای ورود به بازار کار',
+      'description' => 'ترفندهای فتوشاپ، ایلوستریتور، طراحی رابط کاربری (UI/UX) و مقالات تخصصی از اساتید آکادمی.',
     )
   );
   ?>
@@ -28,16 +28,16 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
     <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-3">
         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-          <p class="text-sm font-semibold text-slate-500"><?php esc_html_e('Published articles', 'romonet'); ?></p>
+          <p class="text-sm font-semibold text-slate-500">مقالات منتشر شده</p>
           <p class="mt-2 text-3xl font-black text-slate-900"><?php echo esc_html(number_format_i18n($total_posts)); ?></p>
         </div>
         <div class="rounded-3xl border border-slate-200 bg-slate-50 p-6">
-          <p class="text-sm font-semibold text-slate-500"><?php esc_html_e('Topic categories', 'romonet'); ?></p>
+          <p class="text-sm font-semibold text-slate-500">دسته‌بندی‌های آموزشی</p>
           <p class="mt-2 text-3xl font-black text-slate-900"><?php echo esc_html(number_format_i18n($category_count)); ?></p>
         </div>
         <div class="rounded-3xl border border-pink-100 bg-pink-50 p-6">
-          <p class="text-sm font-semibold text-pink-700"><?php esc_html_e('What you will find here', 'romonet'); ?></p>
-          <p class="mt-2 text-sm leading-7 text-pink-900"><?php esc_html_e('Actionable tutorials, agency playbooks, and technical breakdowns you can apply to real projects.', 'romonet'); ?></p>
+          <p class="text-sm font-semibold text-pink-700">چه چیزی اینجا یاد می‌گیرید؟</p>
+          <p class="mt-2 text-sm leading-7 text-pink-900">آموزش‌های پروژه‌محور، ترفندهای نرم‌افزاری و نکات تخصصی که می‌توانید در پروژه‌های واقعی طراحی استفاده کنید.</p>
         </div>
       </div>
     </div>
@@ -47,8 +47,8 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <?php if (! empty($categories)) : ?>
         <div class="mb-10 flex flex-wrap gap-2">
-          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition">
-            <?php esc_html_e('All topics', 'romonet'); ?>
+          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-700">
+            همه مقالات
           </a>
           <?php foreach ($categories as $category) : ?>
             <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-pink-200 hover:text-pink-700">
@@ -99,7 +99,14 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
       </div>
 
       <div class="mt-16">
-        <?php get_template_part('template-parts/sections/cta', null, array('title' => __('Ready to move from reading to building?', 'romonet'), 'text' => __('Share your project goals and we will help you choose the right WordPress strategy.', 'romonet'))); ?>
+        <?php get_template_part(
+          'template-parts/sections/cta',
+          null,
+          array(
+            'title' => 'آماده‌اید مهارت‌های گرافیکی خود را ارتقا دهید؟',
+            'text'  => 'در دوره‌های جامع آکادمی شرکت کنید و با انجام پروژه‌های واقعی، برای ورود قدرتمند به بازار کار آماده شوید.'
+          )
+        ); ?>
       </div>
     </div>
   </section>

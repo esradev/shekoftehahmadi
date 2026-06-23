@@ -2,15 +2,15 @@
 
 get_header();
 
-$hero_badge       = 'فروشگاه دیجیتال';
-$hero_title       = 'محصولات و افزونه‌های آماده';
-$hero_description = 'قالب‌ها، افزونه‌های المنتور و کروکوبلاک، اسکریپت‌ها و ابزارهای اختصاصی رومونت — با قیمت شفاف به تومان و تحویل فوری.';
-$hero_current     = 'محصولات';
+$hero_badge       = 'ابزارهای طراحی';
+$hero_title       = 'فایل‌های لایه‌باز و موکاپ‌ها';
+$hero_description = 'مجموعه‌ای از براش‌ها، موکاپ‌ها، فایل‌های لایه‌باز (PSD/AI) و ابزارهای کاربردی برای طراحان گرافیک — با دانلود فوری.';
+$hero_current     = 'فروشگاه فایل';
 
 if (function_exists('is_product_category') && is_product_category()) {
   $term = get_queried_object();
   if ($term instanceof WP_Term) {
-    $hero_badge       = 'دسته‌بندی محصول';
+    $hero_badge       = 'دسته‌بندی محصولات';
     $hero_title       = $term->name;
     $hero_description = $term->description ? wp_trim_words(wp_strip_all_tags($term->description), 28) : $hero_description;
     $hero_current     = $term->name;
@@ -90,7 +90,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div class="rounded-2xl border border-pink-100 bg-pink-50/60 px-5 py-4">
           <p class="text-2xl font-black text-pink-700"><?php echo esc_html($found_posts); ?></p>
-          <p class="mt-1 text-sm text-slate-600">محصول در این نمایش</p>
+          <p class="mt-1 text-sm text-slate-600">فایل گرافیکی در این نمایش</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
           <p class="text-2xl font-black text-slate-900"><?php echo esc_html(count($product_cats)); ?></p>
@@ -102,7 +102,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
         </div>
         <div class="rounded-2xl border border-emerald-100 bg-emerald-50/60 px-5 py-4">
           <p class="text-2xl font-black text-emerald-700">فوری</p>
-          <p class="mt-1 text-sm text-slate-600">تحویل دیجیتال پس از پرداخت</p>
+          <p class="mt-1 text-sm text-slate-600">دانلود فوری پس از پرداخت</p>
         </div>
       </div>
     </div>
@@ -116,13 +116,13 @@ foreach (array_keys($type_labels_fa) as $type_key) {
             <div class="flex flex-col gap-5">
               <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p class="text-sm font-bold text-slate-900">فیلتر بر اساس نوع محصول</p>
+                  <p class="text-sm font-bold text-slate-900">فیلتر بر اساس نوع فایل</p>
                   <p class="mt-1 text-sm text-slate-600">
                     <?php
                     if ($active_type && isset($type_labels_fa[$active_type])) {
-                      echo esc_html(sprintf('نمایش %1$s — %2$d محصول', $type_labels_fa[$active_type], $found_posts));
+                      echo esc_html(sprintf('نمایش %1$s — %2$d فایل', $type_labels_fa[$active_type], $found_posts));
                     } else {
-                      echo esc_html(sprintf('%d محصول یافت شد', $found_posts));
+                      echo esc_html(sprintf('%d فایل یافت شد', $found_posts));
                     }
                     ?>
                   </p>
@@ -178,8 +178,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
             <div class="mt-12"><?php get_template_part('template-parts/ui/pagination'); ?></div>
           <?php else : ?>
             <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
-              <p class="text-lg font-bold text-slate-900">محصولی یافت نشد</p>
-              <p class="mt-2 text-sm text-slate-600">فیلتر دیگری امتحان کنید یا با تیم رومونت برای پیشنهاد اختصاصی تماس بگیرید.</p>
+              <p class="text-lg font-bold text-slate-900">فایلی یافت نشد</p>
+              <p class="mt-2 text-sm text-slate-600">فیلتر دیگری امتحان کنید یا با پشتیبانی آکادمی برای راهنمایی بیشتر تماس بگیرید.</p>
               <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex items-center justify-center rounded-full bg-pink-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">مشاوره رایگان</a>
             </div>
           <?php endif; ?>
@@ -187,11 +187,11 @@ foreach (array_keys($type_labels_fa) as $type_key) {
 
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
           <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-bold text-slate-900">جستجو در محصولات</h2>
+            <h2 class="text-lg font-bold text-slate-900">جستجو در فایل‌ها</h2>
             <form role="search" method="get" action="<?php echo esc_url(function_exists('wc_get_page_permalink') ? wc_get_page_permalink('shop') : home_url('/shop/')); ?>" class="mt-4">
               <label for="product-sidebar-search" class="sr-only">جستجو</label>
               <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
-                <input id="product-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_query); ?>" placeholder="نام محصول، افزونه یا کلیدواژه..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
+                <input id="product-sidebar-search" type="search" name="s" value="<?php echo esc_attr($search_query); ?>" placeholder="نام فایل، موکاپ یا کلیدواژه..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
                 <input type="hidden" name="post_type" value="product" />
                 <?php if ($active_type) : ?>
                   <input type="hidden" name="digital_type" value="<?php echo esc_attr($active_type); ?>" />
@@ -212,7 +212,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
               ?>
               <li>
                 <a href="<?php echo esc_url($all_shop_url); ?>" class="<?php echo 0 === $current_cat_id ? 'font-semibold text-pink-700' : 'transition hover:text-pink-700'; ?>">
-                  همه محصولات
+                  همه فایل‌ها
                 </a>
               </li>
 
@@ -242,7 +242,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
           </div>
 
           <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
-            <h2 class="text-lg font-bold text-slate-900">نوع محصول</h2>
+            <h2 class="text-lg font-bold text-slate-900">نوع فایل</h2>
             <ul class="mt-4 space-y-3 text-sm text-slate-600">
               <?php foreach ($type_labels_fa as $type_key => $type_label) : ?>
                 <?php
@@ -263,8 +263,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
           </div>
 
           <div class="rounded-2xl border border-pink-100 bg-linear-to-br from-pink-50 to-indigo-50 p-6">
-            <h2 class="text-lg font-bold text-slate-900">در انتخاب مردد هستید؟</h2>
-            <p class="mt-3 text-sm leading-7 text-slate-600">نیاز پروژه خود را بگویید تا مناسب‌ترین قالب، افزونه المنتور یا بسته کروکوبلاک را پیشنهاد دهیم.</p>
+            <h2 class="text-lg font-bold text-slate-900">نیاز به راهنمایی دارید؟</h2>
+            <p class="mt-3 text-sm leading-7 text-slate-600">پروژه گرافیکی خود را توضیح دهید تا مناسب‌ترین موکاپ، براش یا فایل لایه‌باز را به شما پیشنهاد دهیم.</p>
             <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
               مشاوره رایگان
             </a>
@@ -274,8 +274,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
 
       <div class="mt-16">
         <?php get_template_part('template-parts/sections/cta', null, array(
-          'title' => 'برای انتخاب محصول مطمئن نیستید؟',
-          'text'  => 'نیازتان را بگویید تا بهترین گزینه — از Elementor Pro تا قالب اختصاصی — را پیشنهاد کنیم.',
+          'title' => 'فایل مورد نظرتان را پیدا نمی‌کنید؟',
+          'text'  => 'نیازتان را بگویید تا بهترین ابزار طراحی — از فایل لایه‌باز تا براش‌های فتوشاپ — را به شما پیشنهاد کنیم.',
         )); ?>
       </div>
     </div>
