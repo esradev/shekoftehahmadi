@@ -9,14 +9,7 @@ $latest_posts_query = new WP_Query(array(
     'ignore_sticky_posts' => true
 ));
 
-$home_portfolio_query   = romonet_get_home_featured_query('portfolio', 3);
-$home_case_study_query  = romonet_get_home_featured_query('case_study', 3);
 $home_products_query    = romonet_get_home_products_query(3);
-$home_testimonials      = romonet_get_home_testimonials(3);
-$home_client_names      = romonet_get_home_client_names(6);
-
-$portfolio_archive_url  = romonet_get_home_archive_url('portfolio');
-$case_study_archive_url = romonet_get_home_archive_url('case_study');
 $shop_url               = romonet_get_home_shop_url();
 
 // دریافت آدرس صفحه وبلاگ (نوشته‌ها)
@@ -54,10 +47,7 @@ $blog_archive_url       = get_option('page_for_posts') ? get_permalink(get_optio
                 <path d="m12 19-7-7 7-7" />
               </svg>
             </a>
-            <a href="<?php echo esc_url($portfolio_archive_url); ?>"
-              class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-900 transition hover:bg-slate-50">
-              نمونه‌کار دانشجویان
-            </a>
+
           </div>
           <dl class="mt-10 grid max-w-lg grid-cols-3 gap-6 border-t border-slate-200 pt-8">
             <div>
@@ -96,18 +86,6 @@ $blog_archive_url       = get_option('page_for_posts') ? get_permalink(get_optio
           </div>
         </div>
       </div>
-
-      <?php if (! empty($home_client_names)) : ?>
-      <div class="mt-16 border-t border-slate-200 pt-8">
-        <p class="text-center text-sm font-medium text-slate-500">مورد اعتماد برندها و آژانس‌های تبلیغاتی پیشرو</p>
-        <div class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 opacity-70">
-          <?php foreach ($home_client_names as $client_name) : ?>
-          <span
-            class="text-xl font-extrabold tracking-tight text-slate-400"><?php echo esc_html($client_name); ?></span>
-          <?php endforeach; ?>
-        </div>
-      </div>
-      <?php endif; ?>
     </div>
   </section>
 
@@ -302,48 +280,6 @@ $blog_archive_url       = get_option('page_for_posts') ? get_permalink(get_optio
             ?>
         <?php endwhile; ?>
         <?php wp_reset_postdata(); ?>
-      </div>
-    </div>
-  </section>
-  <?php endif; ?>
-
-  <?php if (! empty($home_testimonials)) : ?>
-  <section class="py-20 lg:py-28">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl text-center">
-        <span class="text-sm font-bold uppercase tracking-wider text-pink-600">نظرات دانشجویان</span>
-        <h2 class="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">چرا هنرجویان
-          آکادمی ما را انتخاب می‌کنند</h2>
-      </div>
-      <div class="mt-14 grid gap-6 lg:grid-cols-3">
-        <?php foreach ($home_testimonials as $testimonial_post) : ?>
-        <?php
-            $quote         = get_post_meta($testimonial_post->ID, 'testimonial', true);
-            $client_name   = get_post_meta($testimonial_post->ID, 'client_name', true);
-            $project_title = get_the_title($testimonial_post);
-            $display_name  = $client_name ?: $project_title;
-            $display_role  = $client_name ? $project_title : 'دانشجوی آکادمی';
-            ?>
-        <figure class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-          <div class="flex gap-1 text-pink-400" aria-hidden="true">
-            <?php for ($star = 0; $star < 5; $star++) : ?>
-            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="m12 3 2.5 6.5L21 10l-5 4 1.5 7L12 17l-5.5 4L8 14l-5-4 6.5-.5z" />
-            </svg>
-            <?php endfor; ?>
-          </div>
-          <blockquote class="mt-4 text-pretty leading-8 text-slate-600">&laquo;<?php echo esc_html($quote); ?>&raquo;
-          </blockquote>
-          <figcaption class="mt-6 flex items-center gap-3">
-            <span
-              class="grid h-11 w-11 place-items-center rounded-full bg-pink-50 font-bold text-pink-700"><?php echo esc_html(romonet_get_persian_initials($display_name)); ?></span>
-            <div>
-              <p class="text-sm font-bold text-slate-900"><?php echo esc_html($display_name); ?></p>
-              <p class="text-xs text-slate-500"><?php echo esc_html($display_role); ?></p>
-            </div>
-          </figcaption>
-        </figure>
-        <?php endforeach; ?>
       </div>
     </div>
   </section>

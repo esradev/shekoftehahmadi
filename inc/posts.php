@@ -313,21 +313,23 @@ if (! function_exists('romonet_render_comment')) {
   {
     $tag = ('div' === $args['style']) ? 'div' : 'li';
     ?>
-    <<?php echo esc_attr($tag); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class('rounded-3xl border border-slate-200 bg-slate-50 p-5 sm:p-6', $comment); ?>>
-      <article class="flex gap-4">
-        <div class="shrink-0">
-          <?php echo get_avatar($comment, 48, '', '', array('class' => 'rounded-full')); ?>
-        </div>
-        <div class="min-w-0 flex-1">
-          <header class="flex flex-wrap items-center gap-x-3 gap-y-1">
-            <strong class="text-sm font-semibold text-slate-900"><?php comment_author(); ?></strong>
-            <time datetime="<?php comment_time('c'); ?>" class="text-xs text-slate-500"><?php printf(esc_html__('%1$s at %2$s', 'romonet'), get_comment_date(), get_comment_time()); ?></time>
-          </header>
-          <?php if ('0' === $comment->comment_approved) : ?>
-            <p class="mt-2 text-sm text-pink-700"><?php esc_html_e('Your comment is awaiting moderation.', 'romonet'); ?></p>
-          <?php endif; ?>
-          <div class="mt-3 text-sm leading-7 text-slate-700"><?php comment_text(); ?></div>
-          <?php
+<<?php echo esc_attr($tag); ?> id="comment-<?php comment_ID(); ?>"
+  <?php comment_class('rounded-3xl border border-slate-200 bg-slate-50 p-5 sm:p-6', $comment); ?>>
+  <article class="flex gap-4">
+    <div class="shrink-0">
+      <?php echo get_avatar($comment, 48, '', '', array('class' => 'rounded-full')); ?>
+    </div>
+    <div class="min-w-0 flex-1">
+      <header class="flex flex-wrap items-center gap-x-3 gap-y-1">
+        <strong class="text-sm font-semibold text-slate-900"><?php comment_author(); ?></strong>
+        <time datetime="<?php comment_time('c'); ?>"
+          class="text-xs text-slate-500"><?php printf(esc_html__('%1$s at %2$s', 'romonet'), get_comment_date(), get_comment_time()); ?></time>
+      </header>
+      <?php if ('0' === $comment->comment_approved) : ?>
+      <p class="mt-2 text-sm text-pink-700"><?php esc_html_e('Your comment is awaiting moderation.', 'romonet'); ?></p>
+      <?php endif; ?>
+      <div class="mt-3 text-sm leading-7 text-slate-700"><?php comment_text(); ?></div>
+      <?php
           comment_reply_link(
             array_merge(
               $args,
@@ -341,9 +343,9 @@ if (! function_exists('romonet_render_comment')) {
             )
           );
           ?>
-        </div>
-      </article>
-    </<?php echo esc_attr($tag); ?>>
-    <?php
+    </div>
+  </article>
+</<?php echo esc_attr($tag); ?>>
+<?php
   }
 }

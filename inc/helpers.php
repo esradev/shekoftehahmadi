@@ -47,7 +47,6 @@ if (! function_exists('romonet_top_bar_menu_fallback')) {
 <ul class="flex flex-wrap items-center gap-x-5 gap-y-1">
   <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/about/')); ?>">درباره ما</a></li>
   <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/blog/')); ?>">وبلاگ</a></li>
-  <li><a class="transition hover:text-white" href="<?php echo esc_url(home_url('/pricing/')); ?>">تعرفه‌ها</a></li>
 </ul>
 <?php
   }
