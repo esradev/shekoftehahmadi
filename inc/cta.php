@@ -47,7 +47,7 @@ if (! function_exists('romonet_register_block_patterns')) {
         array(
           'title' => __('CTA Section', 'romonet'),
           'categories' => array('romonet'),
-          'content' => '<!-- wp:group {"className":"romonet-cta-section is-style-romonet-cta-default relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-blue-200/50 sm:px-12 lg:py-16"} --><div class="wp-block-group romonet-cta-section is-style-romonet-cta-default relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-blue-200/50 sm:px-12 lg:py-16"><!-- wp:heading {"level":2,"textColor":"white","fontSize":"xlarge"} --><h2 class="has-white-color has-text-color has-xlarge-font-size">' . esc_html__('Ready to start your next project?', 'romonet') . '</h2><!-- /wp:heading --><!-- wp:paragraph {"textColor":"cyan-bluish-gray"} --><p class="has-cyan-bluish-gray-color has-text-color">' . esc_html__('Talk to us today to get a tailored proposal and accurate estimate.', 'romonet') . '</p><!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"text-blue-700","className":"is-style-fill"} --><div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-blue-700-color has-text-color has-white-background-color has-background">' . esc_html__('Request a project', 'romonet') . '</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline","textColor":"white","borderRadius":9999} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color">' . esc_html__('Free consultation', 'romonet') . '</a></div><!-- /wp:button --></div><!-- /wp:buttons --></div><!-- /wp:group -->',
+          'content' => '<!-- wp:group {"className":"romonet-cta-section is-style-romonet-cta-default relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-pink-200/50 sm:px-12 lg:py-16"} --><div class="wp-block-group romonet-cta-section is-style-romonet-cta-default relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-pink-200/50 sm:px-12 lg:py-16"><!-- wp:heading {"level":2,"textColor":"white","fontSize":"xlarge"} --><h2 class="has-white-color has-text-color has-xlarge-font-size">' . esc_html__('Ready to start your next project?', 'romonet') . '</h2><!-- /wp:heading --><!-- wp:paragraph {"textColor":"cyan-bluish-gray"} --><p class="has-cyan-bluish-gray-color has-text-color">' . esc_html__('Talk to us today to get a tailored proposal and accurate estimate.', 'romonet') . '</p><!-- /wp:paragraph --><!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"}} --><div class="wp-block-buttons"><!-- wp:button {"backgroundColor":"white","textColor":"text-pink-700","className":"is-style-fill"} --><div class="wp-block-button is-style-fill"><a class="wp-block-button__link has-pink-700-color has-text-color has-white-background-color has-background">' . esc_html__('Request a project', 'romonet') . '</a></div><!-- /wp:button --><!-- wp:button {"className":"is-style-outline","textColor":"white","borderRadius":9999} --><div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color">' . esc_html__('Free consultation', 'romonet') . '</a></div><!-- /wp:button --></div><!-- /wp:buttons --></div><!-- /wp:group -->',
         )
       );
     }
@@ -84,18 +84,18 @@ if (! function_exists('romonet_cta_shortcode')) {
       $style = 'default';
     }
 
-    $section_classes = 'relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-blue-200/50 sm:px-12 lg:py-16';
-    $primary_button_classes = 'rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50';
+    $section_classes = 'relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-pink-200/50 sm:px-12 lg:py-16';
+    $primary_button_classes = 'rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-pink-700 shadow-sm transition hover:bg-pink-50';
     $secondary_button_classes = 'rounded-xl border border-white/30 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10';
-    $text_classes = 'mt-4 text-pretty text-lg leading-8 text-blue-100';
+    $text_classes = 'mt-4 text-pretty text-lg leading-8 text-pink-100';
 
     if ($style === 'inverse') {
       $section_classes .= ' bg-slate-900';
-      $primary_button_classes = 'rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-blue-500';
+      $primary_button_classes = 'rounded-xl bg-pink-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-pink-500';
       $secondary_button_classes = 'rounded-xl border border-slate-300 bg-transparent px-6 py-3.5 text-base font-semibold text-slate-200 transition hover:border-slate-200 hover:bg-slate-800';
       $text_classes = 'mt-4 text-pretty text-lg leading-8 text-slate-300';
     } else {
-      $section_classes .= ' bg-blue-700';
+      $section_classes .= ' bg-pink-700';
     }
 
     ob_start();

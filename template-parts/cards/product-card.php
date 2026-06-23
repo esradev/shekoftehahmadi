@@ -28,16 +28,16 @@ if (! $image && function_exists('wc_placeholder_img_src')) {
 
 ?>
 
-<a href="<?php echo esc_url($url); ?>" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/50">
+<a href="<?php echo esc_url($url); ?>" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/50">
   <div class="relative">
-    <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($alt); ?>" class="aspect-4/3 w-full rounded-t-2xl bg-linear-to-br from-slate-100 to-blue-50 object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy" />
+    <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($alt); ?>" class="aspect-4/3 w-full rounded-t-2xl bg-linear-to-br from-slate-100 to-pink-50 object-cover transition duration-500 group-hover:scale-[1.02]" loading="lazy" />
 
     <?php if ($type_label) : ?>
-      <span class="absolute top-4 right-4 inline-flex items-center rounded-full bg-blue-600 px-3 py-1 text-xs font-semibold text-white shadow-sm"><?php echo esc_html($type_label); ?></span>
+      <span class="absolute top-4 right-4 inline-flex items-center rounded-full bg-pink-600 px-3 py-1 text-xs font-semibold text-white shadow-sm"><?php echo esc_html($type_label); ?></span>
     <?php endif; ?>
 
     <?php if ($has_demo) : ?>
-      <span class="absolute top-4 left-4 inline-flex items-center rounded-full border border-white/70 bg-white/90 px-3 py-1 text-xs font-semibold text-blue-700 backdrop-blur-sm">دمو زنده</span>
+      <span class="absolute top-4 left-4 inline-flex items-center rounded-full border border-white/70 bg-white/90 px-3 py-1 text-xs font-semibold text-pink-700 backdrop-blur-sm">دمو زنده</span>
     <?php endif; ?>
 
     <?php if ($license_label) : ?>
@@ -51,11 +51,11 @@ if (! $image && function_exists('wc_placeholder_img_src')) {
 
   <div class="flex flex-1 flex-col <?php echo $compact ? 'p-5' : 'p-6 sm:p-7'; ?>">
     <?php if ($category) : ?>
-      <p class="text-xs font-semibold tracking-wide text-blue-600"><?php echo esc_html($category); ?></p>
+      <p class="text-xs font-semibold tracking-wide text-pink-600"><?php echo esc_html($category); ?></p>
     <?php endif; ?>
 
     <div class="mt-2 <?php echo $compact ? 'space-y-1.5' : 'flex items-start justify-between gap-4'; ?>">
-      <h3 class="<?php echo $compact ? 'text-base font-bold leading-6' : 'text-lg font-bold leading-7'; ?> text-slate-900 transition group-hover:text-blue-700"><?php echo esc_html($title); ?></h3>
+      <h3 class="<?php echo $compact ? 'text-base font-bold leading-6' : 'text-lg font-bold leading-7'; ?> text-slate-900 transition group-hover:text-pink-700"><?php echo esc_html($title); ?></h3>
       <p class="<?php echo $compact ? 'text-sm' : 'shrink-0 text-base'; ?> font-bold text-slate-900"><?php echo wp_kses_post($price); ?></p>
     </div>
 
@@ -90,7 +90,7 @@ if (! $image && function_exists('wc_placeholder_img_src')) {
       </div>
     <?php endif; ?>
 
-    <span class="<?php echo $compact ? 'mt-4' : 'mt-5'; ?> inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">جزئیات بیشتر
+    <span class="<?php echo $compact ? 'mt-4' : 'mt-5'; ?> inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">جزئیات بیشتر
       <svg class="h-4 w-4 transition group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M19 12H5" />
         <path d="m12 19-7-7 7-7" />

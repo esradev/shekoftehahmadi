@@ -27,19 +27,19 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
     <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-x-6 gap-y-2 px-4 py-2 text-xs sm:px-6 lg:px-8">
       <div class="flex flex-wrap items-center gap-x-5 gap-y-1">
         <span class="hidden items-center gap-1.5 sm:inline-flex">
-          <svg class="h-3.5 w-3.5 shrink-0 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg>
           <span>شنبه تا پنج‌شنبه، ۹ تا ۱۸</span>
         </span>
         <a href="tel:+982112345678" class="inline-flex items-center gap-1.5 transition hover:text-white" dir="ltr">
-          <svg class="h-3.5 w-3.5 shrink-0 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
           </svg>
           ۰۲۱-۱۲۳۴۵۶۷۸
         </a>
         <a href="mailto:info@romonet.ir" class="hidden items-center gap-1.5 transition hover:text-white md:inline-flex" dir="ltr">
-          <svg class="h-3.5 w-3.5 shrink-0 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg class="h-3.5 w-3.5 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
           </svg>
           info@romonet.ir
@@ -69,7 +69,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <div class="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center gap-3 rounded-xl px-1 py-1" aria-label="رومونت">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-950/30 lg:h-11 lg:w-11">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-pink-600 text-white shadow-lg shadow-pink-950/30 lg:h-11 lg:w-11">
             <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" />
               <path d="m4 9 4.5 11L12 9l3.5 11L20 9" />
@@ -97,10 +97,10 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
 
         <div class="flex items-center gap-2 sm:gap-3">
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-medium text-slate-200 transition hover:border-white/30 hover:text-white xl:inline-flex">مشاوره رایگان</a>
-          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="hidden rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-950/30 transition hover:bg-blue-500 lg:inline-flex">ثبت پروژه</a>
+          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="hidden rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-950/30 transition hover:bg-pink-500 lg:inline-flex">ثبت پروژه</a>
 
           <div class="relative" @click.away="cartMenuOpen = false">
-            <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500" @click="cartMenuOpen = !cartMenuOpen; accountMenuOpen = false" :aria-expanded="cartMenuOpen.toString()" aria-haspopup="true" aria-label="نمایش سبد خرید">
+            <button type="button" class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500" @click="cartMenuOpen = !cartMenuOpen; accountMenuOpen = false" :aria-expanded="cartMenuOpen.toString()" aria-haspopup="true" aria-label="نمایش سبد خرید">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
               </svg>
@@ -146,7 +146,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
                       </div>
                       <div class="min-w-0 flex-1">
                         <?php if ($product_permalink) : ?>
-                          <a href="<?php echo esc_url($product_permalink); ?>" class="block truncate text-sm font-semibold text-white hover:text-blue-400"><?php echo esc_html($product_name); ?></a>
+                          <a href="<?php echo esc_url($product_permalink); ?>" class="block truncate text-sm font-semibold text-white hover:text-pink-400"><?php echo esc_html($product_name); ?></a>
                         <?php else : ?>
                           <div class="block truncate text-sm font-semibold text-white"><?php echo esc_html($product_name); ?></div>
                         <?php endif; ?>
@@ -166,7 +166,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
                 </div>
                 <div class="grid grid-cols-2 gap-2">
                   <a href="<?php echo esc_url($cart_url); ?>" class="inline-flex items-center justify-center rounded-full border border-white/15 bg-slate-900 px-4 py-3 text-sm font-semibold text-white transition hover:bg-slate-900/90">مشاهده سبد</a>
-                  <a href="<?php echo esc_url($checkout_url); ?>" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">تسویه حساب</a>
+                  <a href="<?php echo esc_url($checkout_url); ?>" class="inline-flex items-center justify-center rounded-full bg-pink-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">تسویه حساب</a>
                 </div>
               </div>
             </div>
@@ -175,7 +175,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
           <div class="relative hidden sm:block" @click.away="accountMenuOpen = false">
             <?php if (is_user_logged_in()) : ?>
               <?php $current_user = wp_get_current_user(); ?>
-              <button type="button" class="inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-slate-900 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-blue-500" @click="accountMenuOpen = !accountMenuOpen; cartMenuOpen = false" :aria-expanded="accountMenuOpen.toString()" aria-haspopup="true" aria-label="باز کردن منوی حساب">
+              <button type="button" class="inline-flex h-10 w-10 items-center justify-center overflow-hidden rounded-full border border-white/15 bg-slate-900 text-white transition hover:border-white/30 focus:outline-none focus:ring-2 focus:ring-pink-500" @click="accountMenuOpen = !accountMenuOpen; cartMenuOpen = false" :aria-expanded="accountMenuOpen.toString()" aria-haspopup="true" aria-label="باز کردن منوی حساب">
                 <?php echo get_avatar($current_user->ID, 34, '', '', array('class' => 'h-10 w-10 rounded-full object-cover')); ?>
               </button>
               <div x-cloak x-show="accountMenuOpen" x-transition class="absolute right-0 z-50 mt-2 w-52 origin-top-right overflow-hidden rounded-3xl border border-white/10 bg-slate-950 text-sm shadow-xl shadow-black/25 ring-1 ring-white/10">
@@ -274,7 +274,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
 
         <div class="mt-6 space-y-3 border-t border-white/10 pt-6">
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="flex w-full items-center justify-center rounded-full border border-white/15 px-4 py-3 text-sm font-medium text-slate-200 transition hover:border-white/30 hover:text-white">مشاوره رایگان</a>
-          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="flex w-full items-center justify-center rounded-full bg-blue-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-950/30">ثبت پروژه</a>
+          <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="flex w-full items-center justify-center rounded-full bg-pink-600 px-4 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-950/30">ثبت پروژه</a>
         </div>
 
         <div class="mt-6 space-y-3 border-t border-white/10 pt-6 text-sm">
@@ -298,13 +298,13 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
 
         <div class="mt-6 space-y-2 border-t border-white/10 pt-6 text-xs text-slate-400">
           <a href="tel:+982112345678" class="flex items-center gap-2 transition hover:text-white" dir="ltr">
-            <svg class="h-4 w-4 shrink-0 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg class="h-4 w-4 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
             </svg>
             ۰۲۱-۱۲۳۴۵۶۷۸
           </a>
           <a href="mailto:info@romonet.ir" class="flex items-center gap-2 transition hover:text-white" dir="ltr">
-            <svg class="h-4 w-4 shrink-0 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <svg class="h-4 w-4 shrink-0 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>
             info@romonet.ir

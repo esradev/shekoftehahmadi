@@ -134,8 +134,8 @@ get_header();
     }
     ?>
 
-    <section class="relative overflow-hidden border-b border-slate-200 bg-linear-to-br from-white via-blue-50/40 to-slate-50">
-      <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-200/30 blur-3xl" aria-hidden="true"></div>
+    <section class="relative overflow-hidden border-b border-slate-200 bg-linear-to-br from-white via-pink-50/40 to-slate-50">
+      <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-pink-200/30 blur-3xl" aria-hidden="true"></div>
       <div class="pointer-events-none absolute -right-16 bottom-0 h-64 w-64 rounded-full bg-indigo-200/20 blur-3xl" aria-hidden="true"></div>
       <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgb(37_99_235/0.08)_1px,transparent_0)] bg-size-[24px_24px]" aria-hidden="true"></div>
 
@@ -146,10 +146,10 @@ get_header();
           <div class="space-y-6">
             <div class="flex flex-wrap items-center gap-3">
               <?php if ($digital_type_label) : ?>
-                <span class="inline-flex items-center rounded-full bg-blue-600 px-4 py-1.5 text-xs font-bold text-white shadow-sm"><?php echo esc_html($digital_type_label); ?></span>
+                <span class="inline-flex items-center rounded-full bg-pink-600 px-4 py-1.5 text-xs font-bold text-white shadow-sm"><?php echo esc_html($digital_type_label); ?></span>
               <?php endif; ?>
               <?php if ($categories) : ?>
-                <span class="text-sm font-semibold text-blue-700"><?php echo wp_kses_post($categories); ?></span>
+                <span class="text-sm font-semibold text-pink-700"><?php echo wp_kses_post($categories); ?></span>
               <?php endif; ?>
             </div>
 
@@ -164,7 +164,7 @@ get_header();
             <?php if (! empty($hero_highlights)) : ?>
               <div class="flex flex-wrap gap-2">
                 <?php foreach ($hero_highlights as $item) : ?>
-                  <span class="inline-flex items-center rounded-full border border-blue-100 bg-white/80 px-4 py-2 text-xs font-semibold text-blue-800 shadow-sm backdrop-blur-sm sm:text-sm"><?php echo esc_html($item); ?></span>
+                  <span class="inline-flex items-center rounded-full border border-pink-100 bg-white/80 px-4 py-2 text-xs font-semibold text-pink-800 shadow-sm backdrop-blur-sm sm:text-sm"><?php echo esc_html($item); ?></span>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
@@ -188,7 +188,7 @@ get_header();
               <?php endif; ?>
             </div>
 
-            <div class="rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-lg shadow-blue-100/30 backdrop-blur-sm sm:p-7">
+            <div class="rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-lg shadow-pink-100/30 backdrop-blur-sm sm:p-7">
               <div class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
                 <div class="space-y-2">
                   <p class="text-sm font-semibold text-slate-500">قیمت (تومان)</p>
@@ -207,10 +207,10 @@ get_header();
                         <form class="grid gap-3 sm:grid-flow-col sm:auto-cols-max" data-romonet-add-to-cart-form method="post" action="<?php echo esc_url(apply_filters('woocommerce_add_to_cart_form_action', $product->add_to_cart_url())); ?>" enctype="multipart/form-data">
                           <input type="hidden" name="product_id" value="<?php echo esc_attr($product_id); ?>">
                           <input type="hidden" name="quantity" value="1">
-                          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 sm:text-base">افزودن به سبد</button>
+                          <button type="submit" class="inline-flex items-center justify-center rounded-full bg-pink-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-500 sm:text-base">افزودن به سبد</button>
                         </form>
                       <?php elseif ($product->is_purchasable() && $product->is_in_stock()) : ?>
-                        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-500 sm:text-base"><?php echo esc_html($product->add_to_cart_text()); ?></a>
+                        <a href="<?php echo esc_url($product->add_to_cart_url()); ?>" class="inline-flex items-center justify-center rounded-full bg-pink-600 px-7 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-500 sm:text-base"><?php echo esc_html($product->add_to_cart_text()); ?></a>
                       <?php else : ?>
                         <span class="inline-flex items-center justify-center rounded-full bg-slate-300 px-7 py-3 text-sm font-semibold text-slate-700">ناموجود</span>
                       <?php endif; ?>
@@ -219,7 +219,7 @@ get_header();
 
                   <a href="#description" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100 sm:text-base">معرفی محصول</a>
                   <?php if ($demo_url) : ?>
-                    <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-7 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-100 sm:text-base">دمو زنده</a>
+                    <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-pink-200 bg-pink-50 px-7 py-3 text-sm font-semibold text-pink-700 transition hover:bg-pink-100 sm:text-base">دمو زنده</a>
                   <?php endif; ?>
                 </div>
               </div>
@@ -254,7 +254,7 @@ get_header();
         <div class="space-y-8">
           <section id="description" class="rounded-4xl border border-slate-100 bg-white p-6 shadow-sm sm:p-8">
             <h2 class="text-2xl font-bold text-slate-900">معرفی کامل محصول</h2>
-            <div class="prose prose-slate mt-6 max-w-none prose-headings:font-bold prose-a:text-blue-600">
+            <div class="prose prose-slate mt-6 max-w-none prose-headings:font-bold prose-a:text-pink-600">
               <?php the_content(); ?>
             </div>
           </section>
@@ -348,9 +348,9 @@ get_header();
         </div>
 
         <aside class="space-y-6 lg:sticky lg:top-24 lg:self-start">
-          <section class="rounded-4xl border border-blue-100 bg-linear-to-br from-blue-600 to-indigo-700 p-6 text-white shadow-lg">
+          <section class="rounded-4xl border border-pink-100 bg-linear-to-br from-pink-600 to-indigo-700 p-6 text-white shadow-lg">
             <h2 class="text-lg font-bold">خرید مطمئن از رومونت</h2>
-            <ul class="mt-4 space-y-3 text-sm leading-7 text-blue-50">
+            <ul class="mt-4 space-y-3 text-sm leading-7 text-pink-50">
               <li class="flex gap-2"><span>✓</span><span>تحویل آنی فایل پس از پرداخت</span></li>
               <li class="flex gap-2"><span>✓</span><span>پشتیبانی فنی تیم آژانس</span></li>
               <li class="flex gap-2"><span>✓</span><span>قیمت‌گذاری شفاف به تومان</span></li>
@@ -423,7 +423,7 @@ get_header();
               <h2 class="text-lg font-bold text-slate-900">منابع و لینک‌ها</h2>
               <div class="mt-5 grid gap-3">
                 <?php if ($demo_url) : ?>
-                  <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-2xl border border-blue-200 bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-100">مشاهده دمو زنده</a>
+                  <a href="<?php echo esc_url($demo_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-2xl border border-pink-200 bg-pink-50 px-4 py-3 text-sm font-semibold text-pink-700 transition hover:bg-pink-100">مشاهده دمو زنده</a>
                 <?php endif; ?>
                 <?php if ($docs_url) : ?>
                   <a href="<?php echo esc_url($docs_url); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-100">مطالعه مستندات</a>

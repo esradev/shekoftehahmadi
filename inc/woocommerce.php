@@ -215,7 +215,7 @@ if (! function_exists('romonet_get_mini_cart_items_markup')) {
         </div>
         <div class="min-w-0 flex-1">
           <?php if ($product_permalink) : ?>
-            <a href="<?php echo esc_url($product_permalink); ?>" class="block truncate text-sm font-semibold text-white hover:text-blue-400"><?php echo esc_html($product_name); ?></a>
+            <a href="<?php echo esc_url($product_permalink); ?>" class="block truncate text-sm font-semibold text-white hover:text-pink-400"><?php echo esc_html($product_name); ?></a>
           <?php else : ?>
             <div class="block truncate text-sm font-semibold text-white"><?php echo esc_html($product_name); ?></div>
           <?php endif; ?>

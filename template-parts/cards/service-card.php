@@ -34,16 +34,16 @@ if (empty($terms)) {
 
 ?>
 
-<a href="<?php echo esc_url($url); ?>" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40">
+<a href="<?php echo esc_url($url); ?>" class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/40">
   <?php if ($highlight) : ?>
-    <span class="absolute start-4 top-4 z-10 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold text-white shadow-sm">پیشنهادی</span>
+    <span class="absolute start-4 top-4 z-10 rounded-full bg-pink-600 px-3 py-1 text-xs font-bold text-white shadow-sm">پیشنهادی</span>
   <?php endif; ?>
 
-  <div class="aspect-16/10 overflow-hidden bg-linear-to-br from-blue-50 to-cyan-50">
+  <div class="aspect-16/10 overflow-hidden bg-linear-to-br from-pink-50 to-cyan-50">
     <?php if (has_post_thumbnail()) : ?>
       <?php echo get_the_post_thumbnail(null, 'medium', array('class' => 'h-full w-full object-cover transition duration-500 group-hover:scale-105', 'alt' => esc_attr($title))); ?>
     <?php else : ?>
-      <div class="grid h-full w-full place-items-center text-blue-600">
+      <div class="grid h-full w-full place-items-center text-pink-600">
         <svg class="h-12 w-12 opacity-80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path d="M4 6h16M4 12h10M4 18h7" />
         </svg>
@@ -60,7 +60,7 @@ if (empty($terms)) {
       </div>
     <?php endif; ?>
 
-    <h3 class="text-lg font-bold text-slate-900 transition group-hover:text-blue-700"><?php echo esc_html($title); ?></h3>
+    <h3 class="text-lg font-bold text-slate-900 transition group-hover:text-pink-700"><?php echo esc_html($title); ?></h3>
     <p class="mt-3 flex-1 text-sm leading-7 text-slate-600"><?php echo esc_html($text); ?></p>
 
     <?php if ($duration || $price || $industry) : ?>
@@ -71,7 +71,7 @@ if (empty($terms)) {
       </div>
     <?php endif; ?>
 
-    <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">جزئیات بیشتر
+    <span class="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">جزئیات بیشتر
       <svg class="h-4 w-4 transition group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M19 12H5" />
         <path d="m12 19-7-7 7-7" />

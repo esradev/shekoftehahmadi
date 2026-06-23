@@ -23,7 +23,7 @@ $search_value  = function_exists('romonet_get_cpt_search_query') ? romonet_get_c
       <label for="cpt-sidebar-search" class="sr-only">جستجو</label>
       <div class="flex items-center gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-3">
         <input id="cpt-sidebar-search" type="search" name="q" value="<?php echo esc_attr($search_value); ?>" placeholder="کلمه کلیدی..." class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
-        <button type="submit" class="rounded-xl bg-blue-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-blue-500">برو</button>
+        <button type="submit" class="rounded-xl bg-pink-600 px-3 py-2 text-xs font-semibold text-white transition hover:bg-pink-500">برو</button>
       </div>
     </form>
   </div>
@@ -37,7 +37,7 @@ $search_value  = function_exists('romonet_get_cpt_search_query') ? romonet_get_c
         <ul class="mt-4 space-y-3 text-sm text-slate-600">
           <?php foreach ($terms as $term) : ?>
             <li class="flex items-center justify-between gap-3">
-              <a href="<?php echo esc_url(romonet_get_cpt_filter_url($archive_url, array($taxonomy => $term->slug))); ?>" class="transition hover:text-blue-700">
+              <a href="<?php echo esc_url(romonet_get_cpt_filter_url($archive_url, array($taxonomy => $term->slug))); ?>" class="transition hover:text-pink-700">
                 <?php echo esc_html($term->name); ?>
               </a>
               <span class="rounded-full bg-slate-100 px-2.5 py-0.5 text-xs font-semibold text-slate-500"><?php echo esc_html($term->count); ?></span>
@@ -58,7 +58,7 @@ $search_value  = function_exists('romonet_get_cpt_search_query') ? romonet_get_c
       <h2 class="text-lg font-bold text-slate-900"><?php echo esc_html($secondary_label); ?></h2>
       <div class="mt-4 flex flex-wrap gap-2">
         <?php foreach ($secondary_terms as $term) : ?>
-          <a href="<?php echo esc_url(romonet_get_cpt_filter_url($archive_url, array($secondary_taxonomy => $term->slug))); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+          <a href="<?php echo esc_url(romonet_get_cpt_filter_url($archive_url, array($secondary_taxonomy => $term->slug))); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
             <?php echo esc_html($term->name); ?>
           </a>
         <?php endforeach; ?>
@@ -85,7 +85,7 @@ $search_value  = function_exists('romonet_get_cpt_search_query') ? romonet_get_c
         <?php while ($recent->have_posts()) : $recent->the_post(); ?>
           <li>
             <a href="<?php the_permalink(); ?>" class="group block">
-              <p class="text-sm font-semibold text-slate-900 transition group-hover:text-blue-700"><?php the_title(); ?></p>
+              <p class="text-sm font-semibold text-slate-900 transition group-hover:text-pink-700"><?php the_title(); ?></p>
               <p class="mt-1 text-xs text-slate-500"><?php echo esc_html(get_the_date()); ?></p>
             </a>
           </li>
@@ -95,10 +95,10 @@ $search_value  = function_exists('romonet_get_cpt_search_query') ? romonet_get_c
     <?php wp_reset_postdata(); ?>
   <?php endif; ?>
 
-  <div class="rounded-2xl border border-blue-100 bg-linear-to-br from-blue-50 to-cyan-50 p-7 shadow-sm">
+  <div class="rounded-2xl border border-pink-100 bg-linear-to-br from-pink-50 to-cyan-50 p-7 shadow-sm">
     <h2 class="text-lg font-bold text-slate-900">پروژه بعدی شما</h2>
     <p class="mt-3 text-sm leading-7 text-slate-600">برای دریافت مشاوره فنی و برآورد دقیق، جزئیات پروژه را برای ما ارسال کنید.</p>
-    <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+    <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
       ثبت درخواست پروژه
     </a>
   </div>

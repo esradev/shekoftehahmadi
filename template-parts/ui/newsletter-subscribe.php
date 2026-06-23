@@ -39,7 +39,7 @@ $wrapper_class = $args['class'] ?? '';
 $show_email = $fields === 'email' || $fields === 'both';
 $show_phone = $fields === 'phone' || $fields === 'both';
 
-$input_class = 'w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-400 outline-none transition focus:border-blue-400 focus:bg-white/15 focus:ring-4 focus:ring-blue-500/20';
+$input_class = 'w-full rounded-xl border border-white/15 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-slate-400 outline-none transition focus:border-pink-400 focus:bg-white/15 focus:ring-4 focus:ring-pink-500/20';
 $form_class  = $layout === 'inline'
   ? 'mt-6 flex flex-col gap-3 lg:flex-row lg:items-end'
   : 'mt-6 grid gap-3';
@@ -106,7 +106,7 @@ $fields_class = $layout === 'inline'
             type="checkbox"
             name="consent"
             required
-            class="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/10 text-blue-500 focus:ring-blue-500/30"
+            class="mt-0.5 h-4 w-4 shrink-0 rounded border-white/20 bg-white/10 text-pink-500 focus:ring-pink-500/30"
           >
           <span>با دریافت خبرنامه و پیام‌های اطلاع‌رسانی موافقم.</span>
         </label>
@@ -114,7 +114,7 @@ $fields_class = $layout === 'inline'
 
       <button
         type="submit"
-        class="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-600/20 transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
+        class="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl bg-pink-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-pink-600/20 transition hover:bg-pink-500 disabled:cursor-not-allowed disabled:opacity-60"
       >
         <span data-newsletter-submit-label>عضویت</span>
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">

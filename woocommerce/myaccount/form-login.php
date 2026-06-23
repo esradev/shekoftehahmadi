@@ -78,7 +78,7 @@ do_action('woocommerce_before_customer_login_form');
       <div class="px-6 pt-20 pb-24 sm:pb-32 lg:px-8 lg:py-48">
         <div class="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
           <?php if ('yes' === get_option('woocommerce_enable_myaccount_registration')) : ?>
-            
+
             <!-- Login Form -->
             <form class="mb-8 grid gap-4 rounded-2xl border border-slate-200 bg-white p-7 shadow-sm sm:p-8 woocommerce-form woocommerce-form-login login" method="post" novalidate>
               <h3 class="text-xl font-semibold text-slate-900">
@@ -92,13 +92,13 @@ do_action('woocommerce_before_customer_login_form');
                   <?php esc_html_e('Username or email address', 'woocommerce'); ?>
                   <span class="text-red-500" aria-hidden="true">*</span>
                 </span>
-                <input type="text" 
-                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                       name="username" 
-                       id="username" 
-                       autocomplete="username" 
-                       value="<?php echo (! empty($_POST['username']) && is_string($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" 
-                       required 
+                <input type="text"
+                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                       name="username"
+                       id="username"
+                       autocomplete="username"
+                       value="<?php echo (! empty($_POST['username']) && is_string($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>"
+                       required
                        aria-required="true" />
               </label>
 
@@ -107,12 +107,12 @@ do_action('woocommerce_before_customer_login_form');
                   <?php esc_html_e('Password', 'woocommerce'); ?>
                   <span class="text-red-500" aria-hidden="true">*</span>
                 </span>
-                <input type="password" 
-                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                       name="password" 
-                       id="password" 
-                       autocomplete="current-password" 
-                       required 
+                <input type="password"
+                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                       name="password"
+                       id="password"
+                       autocomplete="current-password"
+                       required
                        aria-required="true" />
               </label>
 
@@ -120,10 +120,10 @@ do_action('woocommerce_before_customer_login_form');
 
               <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <label class="flex items-center gap-3 text-sm text-slate-600">
-                  <input class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" 
-                         name="rememberme" 
-                         type="checkbox" 
-                         id="rememberme" 
+                  <input class="h-4 w-4 rounded border-slate-300 text-pink-600 focus:ring-pink-500"
+                         name="rememberme"
+                         type="checkbox"
+                         id="rememberme"
                          value="forever" />
                   <span><?php esc_html_e('Remember me', 'woocommerce'); ?></span>
                 </label>
@@ -131,14 +131,14 @@ do_action('woocommerce_before_customer_login_form');
 
               <div class="flex flex-col gap-4">
                 <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-                <button type="submit" 
-                        class="rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700" 
-                        name="login" 
+                <button type="submit"
+                        class="rounded-xl bg-pink-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+                        name="login"
                         value="<?php esc_attr_e('Log in', 'woocommerce'); ?>">
                   <?php esc_html_e('Log in', 'woocommerce'); ?>
                 </button>
                 <p class="woocommerce-LostPassword lost_password text-sm">
-                  <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-blue-600 hover:text-blue-700">
+                  <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-pink-600 hover:text-pink-700">
                     <?php esc_html_e('Lost your password?', 'woocommerce'); ?>
                   </a>
                 </p>
@@ -163,13 +163,13 @@ do_action('woocommerce_before_customer_login_form');
                     <?php esc_html_e('Username', 'woocommerce'); ?>
                     <span class="text-red-500" aria-hidden="true">*</span>
                   </span>
-                  <input type="text" 
-                         class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                         name="username" 
-                         id="reg_username" 
-                         autocomplete="username" 
-                         value="<?php echo (! empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" 
-                         required 
+                  <input type="text"
+                         class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                         name="username"
+                         id="reg_username"
+                         autocomplete="username"
+                         value="<?php echo (! empty($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>"
+                         required
                          aria-required="true" />
                 </label>
 
@@ -180,13 +180,13 @@ do_action('woocommerce_before_customer_login_form');
                   <?php esc_html_e('Email address', 'woocommerce'); ?>
                   <span class="text-red-500" aria-hidden="true">*</span>
                 </span>
-                <input type="email" 
-                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                       name="email" 
-                       id="reg_email" 
-                       autocomplete="email" 
-                       value="<?php echo (! empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" 
-                       required 
+                <input type="email"
+                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                       name="email"
+                       id="reg_email"
+                       autocomplete="email"
+                       value="<?php echo (! empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>"
+                       required
                        aria-required="true" />
               </label>
 
@@ -197,12 +197,12 @@ do_action('woocommerce_before_customer_login_form');
                     <?php esc_html_e('Password', 'woocommerce'); ?>
                     <span class="text-red-500" aria-hidden="true">*</span>
                   </span>
-                  <input type="password" 
-                         class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                         name="password" 
-                         id="reg_password" 
-                         autocomplete="new-password" 
-                         required 
+                  <input type="password"
+                         class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                         name="password"
+                         id="reg_password"
+                         autocomplete="new-password"
+                         required
                          aria-required="true" />
                 </label>
 
@@ -218,9 +218,9 @@ do_action('woocommerce_before_customer_login_form');
 
               <div>
                 <?php wp_nonce_field('woocommerce-register', 'woocommerce-register-nonce'); ?>
-                <button type="submit" 
-                        class="rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700" 
-                        name="register" 
+                <button type="submit"
+                        class="rounded-xl bg-pink-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+                        name="register"
                         value="<?php esc_attr_e('Register', 'woocommerce'); ?>">
                   <?php esc_html_e('Register', 'woocommerce'); ?>
                 </button>
@@ -245,13 +245,13 @@ do_action('woocommerce_before_customer_login_form');
                   <?php esc_html_e('Username or email address', 'woocommerce'); ?>
                   <span class="text-red-500" aria-hidden="true">*</span>
                 </span>
-                <input type="text" 
-                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                       name="username" 
-                       id="username" 
-                       autocomplete="username" 
-                       value="<?php echo (! empty($_POST['username']) && is_string($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>" 
-                       required 
+                <input type="text"
+                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                       name="username"
+                       id="username"
+                       autocomplete="username"
+                       value="<?php echo (! empty($_POST['username']) && is_string($_POST['username'])) ? esc_attr(wp_unslash($_POST['username'])) : ''; ?>"
+                       required
                        aria-required="true" />
               </label>
 
@@ -260,12 +260,12 @@ do_action('woocommerce_before_customer_login_form');
                   <?php esc_html_e('Password', 'woocommerce'); ?>
                   <span class="text-red-500" aria-hidden="true">*</span>
                 </span>
-                <input type="password" 
-                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-blue-500 focus:ring-4 focus:ring-blue-100" 
-                       name="password" 
-                       id="password" 
-                       autocomplete="current-password" 
-                       required 
+                <input type="password"
+                       class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm outline-none transition focus:border-pink-500 focus:ring-4 focus:ring-pink-100"
+                       name="password"
+                       id="password"
+                       autocomplete="current-password"
+                       required
                        aria-required="true" />
               </label>
 
@@ -273,10 +273,10 @@ do_action('woocommerce_before_customer_login_form');
 
               <div class="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
                 <label class="flex items-center gap-3 text-sm text-slate-600">
-                  <input class="h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500" 
-                         name="rememberme" 
-                         type="checkbox" 
-                         id="rememberme" 
+                  <input class="h-4 w-4 rounded border-slate-300 text-pink-600 focus:ring-pink-500"
+                         name="rememberme"
+                         type="checkbox"
+                         id="rememberme"
                          value="forever" />
                   <span><?php esc_html_e('Remember me', 'woocommerce'); ?></span>
                 </label>
@@ -284,14 +284,14 @@ do_action('woocommerce_before_customer_login_form');
 
               <div class="flex flex-col gap-4">
                 <?php wp_nonce_field('woocommerce-login', 'woocommerce-login-nonce'); ?>
-                <button type="submit" 
-                        class="rounded-xl bg-blue-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700" 
-                        name="login" 
+                <button type="submit"
+                        class="rounded-xl bg-pink-600 px-6 py-3.5 text-sm font-semibold text-white shadow-sm transition hover:bg-pink-700"
+                        name="login"
                         value="<?php esc_attr_e('Log in', 'woocommerce'); ?>">
                   <?php esc_html_e('Log in', 'woocommerce'); ?>
                 </button>
                 <p class="woocommerce-LostPassword lost_password text-sm">
-                  <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-blue-600 hover:text-blue-700">
+                  <a href="<?php echo esc_url(wp_lostpassword_url()); ?>" class="text-pink-600 hover:text-pink-700">
                     <?php esc_html_e('Lost your password?', 'woocommerce'); ?>
                   </a>
                 </p>

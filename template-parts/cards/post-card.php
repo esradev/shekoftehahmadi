@@ -17,7 +17,7 @@ $meta        = romonet_get_post_meta_bundle($post_id);
 $featured    = ! empty($args['featured']);
 ?>
 
-<article <?php post_class('group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl' . ($featured ? ' lg:grid lg:grid-cols-[1.1fr_.9fr] lg:items-stretch' : ''), $post_id); ?>>
+<article <?php post_class('group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl' . ($featured ? ' lg:grid lg:grid-cols-[1.1fr_.9fr] lg:items-stretch' : ''), $post_id); ?>>
   <a href="<?php echo esc_url($link); ?>" class="block overflow-hidden bg-slate-100 <?php echo $featured ? 'lg:min-h-full' : ''; ?>">
     <?php if (has_post_thumbnail($post_id)) : ?>
       <?php echo get_the_post_thumbnail($post_id, 'large', array('class' => ($featured ? 'h-72 lg:h-full' : 'h-72') . ' w-full object-cover transition duration-500 group-hover:scale-105', 'alt' => esc_attr($title))); ?>
@@ -35,7 +35,7 @@ $featured    = ! empty($args['featured']);
   <div class="p-7 <?php echo $featured ? 'flex flex-col justify-center' : ''; ?>">
     <div class="flex flex-wrap items-center gap-2">
       <?php if ($meta['article_type_label']) : ?>
-        <span class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700"><?php echo esc_html($meta['article_type_label']); ?></span>
+        <span class="inline-flex rounded-full bg-pink-50 px-3 py-1 text-xs font-semibold text-pink-700"><?php echo esc_html($meta['article_type_label']); ?></span>
       <?php endif; ?>
       <?php if ($meta['difficulty_label']) : ?>
         <span class="inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-600"><?php echo esc_html($meta['difficulty_label']); ?></span>
@@ -51,7 +51,7 @@ $featured    = ! empty($args['featured']);
     </div>
 
     <h2 class="mt-4 text-2xl font-bold text-slate-900 <?php echo $featured ? 'lg:text-3xl' : ''; ?>">
-      <a href="<?php echo esc_url($link); ?>" class="transition hover:text-blue-700"><?php echo esc_html($title); ?></a>
+      <a href="<?php echo esc_url($link); ?>" class="transition hover:text-pink-700"><?php echo esc_html($title); ?></a>
     </h2>
 
     <?php if ($meta['audience']) : ?>
@@ -68,7 +68,7 @@ $featured    = ! empty($args['featured']);
       </div>
     <?php endif; ?>
 
-    <a href="<?php echo esc_url($link); ?>" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">
+    <a href="<?php echo esc_url($link); ?>" class="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">
       <?php esc_html_e('Read article', 'romonet'); ?>
       <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M19 12H5" />

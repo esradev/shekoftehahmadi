@@ -324,7 +324,7 @@ if (! function_exists('romonet_render_comment')) {
             <time datetime="<?php comment_time('c'); ?>" class="text-xs text-slate-500"><?php printf(esc_html__('%1$s at %2$s', 'romonet'), get_comment_date(), get_comment_time()); ?></time>
           </header>
           <?php if ('0' === $comment->comment_approved) : ?>
-            <p class="mt-2 text-sm text-amber-700"><?php esc_html_e('Your comment is awaiting moderation.', 'romonet'); ?></p>
+            <p class="mt-2 text-sm text-pink-700"><?php esc_html_e('Your comment is awaiting moderation.', 'romonet'); ?></p>
           <?php endif; ?>
           <div class="mt-3 text-sm leading-7 text-slate-700"><?php comment_text(); ?></div>
           <?php
@@ -335,7 +335,7 @@ if (! function_exists('romonet_render_comment')) {
                 'depth'      => $depth,
                 'max_depth'  => $args['max_depth'],
                 'reply_text' => esc_html__('Reply', 'romonet'),
-                'before'     => '<div class="mt-3 text-sm font-semibold text-blue-600">',
+                'before'     => '<div class="mt-3 text-sm font-semibold text-pink-600">',
                 'after'      => '</div>',
               )
             )

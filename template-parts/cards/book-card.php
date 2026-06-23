@@ -35,8 +35,8 @@ foreach ($book_authors as $author) {
 
 ?>
 
-<article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40">
-  <div class="relative aspect-16/10 overflow-hidden bg-linear-to-br from-slate-900 via-blue-900 to-cyan-800">
+<article class="group overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/40">
+  <div class="relative aspect-16/10 overflow-hidden bg-linear-to-br from-slate-900 via-pink-900 to-cyan-800">
     <?php if ($book_featured) : ?>
       <span class="absolute end-4 top-4 z-10 rounded-full bg-cyan-500 px-3 py-1 text-xs font-bold text-white shadow-sm">منتخب</span>
     <?php endif; ?>
@@ -61,7 +61,7 @@ foreach ($book_authors as $author) {
             continue;
           }
           ?>
-          <a href="<?php echo esc_url($topic_url); ?>" class="inline-flex rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700 transition hover:bg-blue-100">
+          <a href="<?php echo esc_url($topic_url); ?>" class="inline-flex rounded-full bg-pink-50 px-3 py-1 text-xs font-semibold text-pink-700 transition hover:bg-pink-100">
             <?php echo esc_html($topic->name); ?>
           </a>
         <?php endforeach; ?>
@@ -71,7 +71,7 @@ foreach ($book_authors as $author) {
     </div>
 
     <div>
-      <h3 class="text-lg font-bold leading-8 text-slate-900 transition group-hover:text-blue-700">
+      <h3 class="text-lg font-bold leading-8 text-slate-900 transition group-hover:text-pink-700">
         <a href="<?php echo esc_url($url); ?>" class="focus:outline-none"><?php echo esc_html($title); ?></a>
       </h3>
       <?php if ($book_subtitle) : ?>
@@ -88,7 +88,7 @@ foreach ($book_authors as $author) {
             <?php if ($index > 0) : ?>
               <span>، </span>
             <?php endif; ?>
-            <a href="<?php echo esc_url($author_link['url']); ?>" class="transition hover:text-blue-700"><?php echo esc_html($author_link['name']); ?></a>
+            <a href="<?php echo esc_url($author_link['url']); ?>" class="transition hover:text-pink-700"><?php echo esc_html($author_link['name']); ?></a>
           <?php endforeach; ?>
         </span>
       </p>
@@ -113,16 +113,16 @@ foreach ($book_authors as $author) {
     </div>
 
     <div class="flex flex-wrap items-center gap-2 pt-1">
-      <a href="<?php echo esc_url($url); ?>" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-blue-500">
+      <a href="<?php echo esc_url($url); ?>" class="inline-flex items-center justify-center rounded-xl bg-pink-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-pink-500">
         مشاهده جزئیات کتاب
       </a>
       <?php if ($book_preview_url) : ?>
-        <a href="<?php echo esc_url($book_preview_url); ?>" target="_blank" rel="noreferrer noopener" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+        <a href="<?php echo esc_url($book_preview_url); ?>" target="_blank" rel="noreferrer noopener" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
           پیش‌نمایش
         </a>
       <?php endif; ?>
       <?php if ($book_download_url) : ?>
-        <a href="<?php echo esc_url($book_download_url); ?>" target="_blank" rel="noreferrer noopener" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+        <a href="<?php echo esc_url($book_download_url); ?>" target="_blank" rel="noreferrer noopener" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
           دانلود
         </a>
       <?php endif; ?>

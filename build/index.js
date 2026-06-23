@@ -1,1 +1,67 @@
-(()=>{"use strict";var e={n:o=>{var t=o&&o.__esModule?()=>o.default:()=>o;return e.d(t,{a:t}),t},d:(o,t)=>{for(var r in t)e.o(t,r)&&!e.o(o,r)&&Object.defineProperty(o,r,{enumerable:!0,get:t[r]})},o:(e,o)=>Object.prototype.hasOwnProperty.call(e,o)};const o=window.React,t=window.ReactJSXRuntime,r=function(){const[e,r]=(0,o.useState)(0);return(0,t.jsxs)("div",{className:"bg-linear-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-md",onClick:()=>r(e=>e+1),children:[(0,t.jsx)("h1",{className:"text-xl",children:"Hello from React!"}),(0,t.jsxs)("p",{className:"text-sm",children:["You have clicked on this component"," ",(0,t.jsx)("span",{className:"text-yellow-200 font-bold",children:e})," times."]})]})},c=window.ReactDOM;var n=e.n(c);new class{constructor(e){this.name=e,this.greet()}greet(){console.log(`Hello, my name is ${this.name}.`)}}("Brad"),document.querySelector("#render-react-example-here")&&n().createRoot(document.querySelector("#render-react-example-here")).render((0,t.jsx)(r,{})),document.addEventListener("click",function(e){const o=e.target.closest(".woocommerce-message__close");if(o){const e=o.closest(".woocommerce-message, .woocommerce-error, .woocommerce-info");e&&e.remove()}})})();
+;(() => {
+  "use strict"
+  var e = {
+    n: o => {
+      var t = o && o.__esModule ? () => o.default : () => o
+      return e.d(t, { a: t }), t
+    },
+    d: (o, t) => {
+      for (var r in t)
+        e.o(t, r) &&
+          !e.o(o, r) &&
+          Object.defineProperty(o, r, { enumerable: !0, get: t[r] })
+    },
+    o: (e, o) => Object.prototype.hasOwnProperty.call(e, o)
+  }
+  const o = window.React,
+    t = window.ReactJSXRuntime,
+    r = function () {
+      const [e, r] = (0, o.useState)(0)
+      return (0, t.jsxs)("div", {
+        className:
+          "bg-linear-to-r from-pink-500 to-indigo-600 text-white p-4 rounded-md",
+        onClick: () => r(e => e + 1),
+        children: [
+          (0, t.jsx)("h1", {
+            className: "text-xl",
+            children: "Hello from React!"
+          }),
+          (0, t.jsxs)("p", {
+            className: "text-sm",
+            children: [
+              "You have clicked on this component",
+              " ",
+              (0, t.jsx)("span", {
+                className: "text-yellow-200 font-bold",
+                children: e
+              }),
+              " times."
+            ]
+          })
+        ]
+      })
+    },
+    c = window.ReactDOM
+  var n = e.n(c)
+  new (class {
+    constructor(e) {
+      ;(this.name = e), this.greet()
+    }
+    greet() {
+      console.log(`Hello, my name is ${this.name}.`)
+    }
+  })("Brad"),
+    document.querySelector("#render-react-example-here") &&
+      n()
+        .createRoot(document.querySelector("#render-react-example-here"))
+        .render((0, t.jsx)(r, {})),
+    document.addEventListener("click", function (e) {
+      const o = e.target.closest(".woocommerce-message__close")
+      if (o) {
+        const e = o.closest(
+          ".woocommerce-message, .woocommerce-error, .woocommerce-info"
+        )
+        e && e.remove()
+      }
+    })
+})()

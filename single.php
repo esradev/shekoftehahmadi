@@ -33,9 +33,9 @@ get_header();
         <div class="grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
           <div class="space-y-6">
             <?php if (! empty($categories)) : ?>
-              <div class="flex flex-wrap gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
+              <div class="flex flex-wrap gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-pink-600">
                 <?php foreach ($categories as $category) : ?>
-                  <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="transition hover:text-blue-800"><?php echo esc_html($category->name); ?></a>
+                  <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="transition hover:text-pink-800"><?php echo esc_html($category->name); ?></a>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
@@ -47,7 +47,7 @@ get_header();
             <?php if (! empty($hero_highlights)) : ?>
               <div class="flex flex-wrap gap-2">
                 <?php foreach ($hero_highlights as $item) : ?>
-                  <span class="inline-flex items-center rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-xs font-semibold text-blue-700 sm:text-sm"><?php echo esc_html($item); ?></span>
+                  <span class="inline-flex items-center rounded-full border border-pink-100 bg-pink-50 px-4 py-2 text-xs font-semibold text-pink-700 sm:text-sm"><?php echo esc_html($item); ?></span>
                 <?php endforeach; ?>
               </div>
             <?php endif; ?>
@@ -81,7 +81,7 @@ get_header();
             <div class="flex flex-wrap items-center gap-3">
               <a href="#article-content" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3 text-sm font-semibold text-white transition hover:bg-slate-700 sm:text-base"><?php esc_html_e('Read article', 'romonet'); ?></a>
               <?php if ($meta['related_url']) : ?>
-                <a href="<?php echo esc_url($meta['related_url']); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-blue-200 bg-blue-50 px-7 py-3 text-sm font-semibold text-blue-700 transition hover:bg-blue-100 sm:text-base">
+                <a href="<?php echo esc_url($meta['related_url']); ?>" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center rounded-full border border-pink-200 bg-pink-50 px-7 py-3 text-sm font-semibold text-pink-700 transition hover:bg-pink-100 sm:text-base">
                   <?php echo esc_html($meta['related_url_label'] ? $meta['related_url_label'] : __('Related resource', 'romonet')); ?>
                 </a>
               <?php endif; ?>
@@ -115,7 +115,7 @@ get_header();
               <ul class="mt-6 grid gap-3 text-sm leading-7 text-slate-700 sm:text-base">
                 <?php foreach ($meta['key_takeaways'] as $takeaway) : ?>
                   <li class="flex items-start gap-3 rounded-2xl border border-slate-200 bg-slate-50 px-4 py-3">
-                    <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+                    <span class="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-pink-500"></span>
                     <span><?php echo esc_html($takeaway); ?></span>
                   </li>
                 <?php endforeach; ?>
@@ -227,7 +227,7 @@ get_header();
               <label for="single-post-search" class="sr-only"><?php esc_html_e('Search', 'romonet'); ?></label>
               <div class="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
                 <input id="single-post-search" type="search" name="s" placeholder="<?php esc_attr_e('Topic or keyword', 'romonet'); ?>" class="w-full bg-transparent text-sm text-slate-900 outline-none placeholder:text-slate-400" />
-                <button type="submit" class="rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"><?php esc_html_e('Go', 'romonet'); ?></button>
+                <button type="submit" class="rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500"><?php esc_html_e('Go', 'romonet'); ?></button>
               </div>
             </form>
           </section>
@@ -238,7 +238,7 @@ get_header();
               <ul class="mt-4 space-y-3 text-sm text-slate-600">
                 <?php foreach ($categories as $category) : ?>
                   <li>
-                    <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="transition hover:text-blue-700"><?php echo esc_html($category->name); ?></a>
+                    <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="transition hover:text-pink-700"><?php echo esc_html($category->name); ?></a>
                   </li>
                 <?php endforeach; ?>
               </ul>
@@ -250,7 +250,7 @@ get_header();
               <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Tags', 'romonet'); ?></h2>
               <div class="mt-4 flex flex-wrap gap-2">
                 <?php foreach ($tags as $tag) : ?>
-                  <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+                  <a href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-semibold text-slate-600 transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
                     <?php echo esc_html($tag->name); ?>
                   </a>
                 <?php endforeach; ?>
@@ -258,10 +258,10 @@ get_header();
             </section>
           <?php endif; ?>
 
-          <section class="rounded-4xl border border-blue-100 bg-linear-to-br from-blue-50 to-cyan-50 p-6 shadow-sm">
+          <section class="rounded-4xl border border-pink-100 bg-linear-to-br from-pink-50 to-cyan-50 p-6 shadow-sm">
             <h2 class="text-lg font-bold text-slate-900"><?php esc_html_e('Need help implementing this?', 'romonet'); ?></h2>
             <p class="mt-3 text-sm leading-7 text-slate-600"><?php esc_html_e('Our team can audit, build, or optimize your WordPress project based on the strategy in this article.', 'romonet'); ?></p>
-            <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+            <a href="<?php echo esc_url(home_url('/project-request/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-2xl bg-pink-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
               <?php esc_html_e('Request a project quote', 'romonet'); ?>
             </a>
           </section>

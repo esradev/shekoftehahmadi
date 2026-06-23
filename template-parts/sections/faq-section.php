@@ -128,7 +128,7 @@ document.addEventListener('alpine:init', () => {
             <li>
               <button
                 type="button"
-                class="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 transition hover:border-blue-200 hover:bg-blue-100"
+                class="rounded-full border border-pink-100 bg-pink-50 px-4 py-2 text-sm font-medium text-pink-700 transition hover:border-pink-200 hover:bg-pink-100"
                 @click="scrollToItem('<?php echo esc_attr($item['id']); ?>')"
               >
                 <?php echo esc_html($item['question']); ?>
@@ -144,16 +144,16 @@ document.addEventListener('alpine:init', () => {
       <?php foreach ($faq_categories as $category) : ?>
         <button
           type="button"
-          class="group rounded-2xl border border-slate-200 bg-white p-5 text-right shadow-sm transition hover:border-blue-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-          :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'border-blue-300 bg-blue-50 ring-2 ring-blue-500/20' : ''"
+          class="group rounded-2xl border border-slate-200 bg-white p-5 text-right shadow-sm transition hover:border-pink-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-pink-500/30"
+          :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'border-pink-300 bg-pink-50 ring-2 ring-pink-500/20' : ''"
           @click="scrollToCategory('<?php echo esc_attr($category['id']); ?>')"
         >
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600 transition group-hover:bg-blue-100">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-pink-50 text-pink-600 transition group-hover:bg-pink-100">
             <?php echo romonet_get_faq_icon_svg($category['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
           </span>
           <span class="mt-4 block font-semibold text-slate-900"><?php echo esc_html($category['title']); ?></span>
           <span class="mt-1 block text-sm leading-6 text-slate-500"><?php echo esc_html($category['description']); ?></span>
-          <span class="mt-3 inline-block text-xs font-medium text-blue-600"><?php echo esc_html(count($category['items']) . ' سوال'); ?></span>
+          <span class="mt-3 inline-block text-xs font-medium text-pink-600"><?php echo esc_html(count($category['items']) . ' سوال'); ?></span>
         </button>
       <?php endforeach; ?>
     </div>
@@ -167,7 +167,7 @@ document.addEventListener('alpine:init', () => {
             <button
               type="button"
               class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition"
-              :class="activeCategory === 'all' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'"
+              :class="activeCategory === 'all' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'"
               @click="activeCategory = 'all'"
             >
               <span>همه سوالات</span>
@@ -177,7 +177,7 @@ document.addEventListener('alpine:init', () => {
               <button
                 type="button"
                 class="flex w-full items-center justify-between rounded-xl px-3 py-2.5 text-sm font-medium transition"
-                :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'bg-white text-blue-700 shadow-sm' : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'"
+                :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'bg-white text-pink-700 shadow-sm' : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'"
                 @click="scrollToCategory('<?php echo esc_attr($category['id']); ?>')"
               >
                 <span><?php echo esc_html($category['title']); ?></span>
@@ -186,10 +186,10 @@ document.addEventListener('alpine:init', () => {
             <?php endforeach; ?>
           </nav>
 
-          <div class="rounded-2xl border border-blue-100 bg-blue-50 p-5">
-            <p class="text-sm font-semibold text-blue-900">پاسخ را پیدا نکردید؟</p>
-            <p class="mt-2 text-sm leading-6 text-blue-800/80">تیم ما ظرف ۲۴ ساعت به سوالات فنی و تجاری پاسخ می‌دهد.</p>
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-blue-700 hover:text-blue-800">
+          <div class="rounded-2xl border border-pink-100 bg-pink-50 p-5">
+            <p class="text-sm font-semibold text-pink-900">پاسخ را پیدا نکردید؟</p>
+            <p class="mt-2 text-sm leading-6 text-pink-800/80">تیم ما ظرف ۲۴ ساعت به سوالات فنی و تجاری پاسخ می‌دهد.</p>
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-pink-700 hover:text-pink-800">
               تماس با ما
               <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5m7 7-7-7 7-7" /></svg>
             </a>
@@ -212,7 +212,7 @@ document.addEventListener('alpine:init', () => {
               type="search"
               x-model="search"
               placeholder="کلمهٔ کلیدی را بنویسید؛ مثلاً ووکامرس، پشتیبانی، قیمت…"
-              class="w-full rounded-2xl border border-slate-200 bg-white py-4 ps-12 pe-4 text-base text-slate-900 transition placeholder:text-slate-400 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/20"
+              class="w-full rounded-2xl border border-slate-200 bg-white py-4 ps-12 pe-4 text-base text-slate-900 transition placeholder:text-slate-400 focus:border-pink-500 focus:outline-none focus:ring-2 focus:ring-pink-500/20"
               autocomplete="off"
             />
           </div>
@@ -223,7 +223,7 @@ document.addEventListener('alpine:init', () => {
             type="button"
             role="tab"
             class="shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition"
-            :class="activeCategory === 'all' ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-200 bg-white text-slate-600'"
+            :class="activeCategory === 'all' ? 'border-pink-600 bg-pink-600 text-white' : 'border-slate-200 bg-white text-slate-600'"
             @click="activeCategory = 'all'"
           >همه</button>
           <?php foreach ($faq_categories as $category) : ?>
@@ -231,7 +231,7 @@ document.addEventListener('alpine:init', () => {
               type="button"
               role="tab"
               class="shrink-0 rounded-full border px-4 py-2 text-sm font-medium transition"
-              :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'border-blue-600 bg-blue-600 text-white' : 'border-slate-200 bg-white text-slate-600'"
+              :class="activeCategory === '<?php echo esc_attr($category['id']); ?>' ? 'border-pink-600 bg-pink-600 text-white' : 'border-slate-200 bg-white text-slate-600'"
               @click="activeCategory = '<?php echo esc_attr($category['id']); ?>'"
             ><?php echo esc_html($category['title']); ?></button>
           <?php endforeach; ?>
@@ -240,7 +240,7 @@ document.addEventListener('alpine:init', () => {
         <p
           x-show="search && visibleResultCount > 0"
           x-cloak
-          class="mb-6 rounded-xl border border-amber-100 bg-amber-50 px-4 py-3 text-sm text-amber-800"
+          class="mb-6 rounded-xl border border-pink-100 bg-pink-50 px-4 py-3 text-sm text-pink-800"
           role="status"
         >
           در حال نمایش نتایج مرتبط با «<span x-text="search"></span>»
@@ -256,7 +256,7 @@ document.addEventListener('alpine:init', () => {
               x-cloak
             >
               <div class="flex items-start gap-4 border-b border-slate-200 pb-4">
-                <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-pink-50 text-pink-600">
                   <?php echo romonet_get_faq_icon_svg($category['icon']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                 </span>
                 <div>
@@ -279,15 +279,15 @@ document.addEventListener('alpine:init', () => {
                     <h3>
                       <button
                         type="button"
-                        class="flex w-full items-center justify-between gap-4 px-5 py-5 text-right font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-blue-500"
+                        class="flex w-full items-center justify-between gap-4 px-5 py-5 text-right font-semibold text-slate-900 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-pink-500"
                         :aria-expanded="openItem === '<?php echo esc_attr($item_id); ?>'"
                         aria-controls="<?php echo esc_attr($panel_id); ?>"
                         @click="toggleItem('<?php echo esc_attr($item_id); ?>')"
                       >
                         <span class="text-pretty leading-7"><?php echo esc_html($item['question']); ?></span>
                         <span
-                          class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-blue-50 text-blue-600 transition"
-                          :class="openItem === '<?php echo esc_attr($item_id); ?>' ? 'rotate-45 bg-blue-600 text-white' : ''"
+                          class="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-pink-50 text-pink-600 transition"
+                          :class="openItem === '<?php echo esc_attr($item_id); ?>' ? 'rotate-45 bg-pink-600 text-white' : ''"
                           aria-hidden="true"
                         >+</span>
                       </button>
@@ -317,7 +317,7 @@ document.addEventListener('alpine:init', () => {
         >
           <span class="block text-lg font-semibold text-slate-900">نتیجه‌ای یافت نشد</span>
           <span class="mt-2 block text-sm text-slate-500">عبارت دیگری امتحان کنید یا مستقیماً با ما تماس بگیرید.</span>
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex rounded-xl bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-blue-700">ارسال پیام</a>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex rounded-xl bg-pink-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-pink-700">ارسال پیام</a>
         </div>
       </div>
     </div>

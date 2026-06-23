@@ -35,7 +35,7 @@ $secondary_url = isset($api_args['secondary_url']) ? (string) $api_args['seconda
 
     <header class="max-w-3xl">
       <?php if ($badge) : ?>
-        <p class="text-sm font-bold uppercase tracking-wider text-blue-600"><?php echo esc_html($badge); ?></p>
+        <p class="text-sm font-bold uppercase tracking-wider text-pink-600"><?php echo esc_html($badge); ?></p>
       <?php endif; ?>
 
       <h1 class="mt-3 text-balance text-4xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-5xl">
@@ -50,7 +50,7 @@ $secondary_url = isset($api_args['secondary_url']) ? (string) $api_args['seconda
 
       <?php if ($primary && $primary_url) : ?>
         <div class="mt-8 flex flex-wrap items-center gap-3">
-          <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center gap-2 rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-blue-700"><?php echo esc_html($primary); ?></a>
+          <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center gap-2 rounded-xl bg-pink-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-pink-700"><?php echo esc_html($primary); ?></a>
 
           <?php if ($secondary && $secondary_url) : ?>
             <a href="<?php echo esc_url($secondary_url); ?>" class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-6 py-3.5 text-base font-semibold text-slate-900 transition hover:bg-slate-50"><?php echo esc_html($secondary); ?></a>

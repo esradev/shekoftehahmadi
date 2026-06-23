@@ -49,7 +49,7 @@ do_action('woocommerce_before_account_orders', $has_orders);
                   <?php do_action('woocommerce_my_account_my_orders_column_' . $column_id, $order); ?>
 
                 <?php elseif ($is_order_number) : ?>
-                  <a href="<?php echo esc_url($order->get_view_order_url()); ?>" 
+                  <a href="<?php echo esc_url($order->get_view_order_url()); ?>"
                      class="text-indigo-600 hover:text-indigo-500"
                      aria-label="<?php echo esc_attr(sprintf(__('View order number %s', 'woocommerce'), $order->get_order_number())); ?>">
                     <?php echo esc_html(_x('#', 'hash before order number', 'woocommerce') . $order->get_order_number()); ?>
@@ -66,7 +66,7 @@ do_action('woocommerce_before_account_orders', $has_orders);
                     $status = $order->get_status();
                     $status_classes = array(
                       'completed' => 'bg-green-100 text-green-800',
-                      'processing' => 'bg-blue-100 text-blue-800',
+                      'processing' => 'bg-pink-100 text-pink-800',
                       'pending' => 'bg-yellow-100 text-yellow-800',
                       'cancelled' => 'bg-red-100 text-red-800',
                       'refunded' => 'bg-gray-100 text-gray-800',
@@ -93,8 +93,8 @@ do_action('woocommerce_before_account_orders', $has_orders);
                       } else {
                         $action_aria_label = $action['aria-label'];
                       }
-                      echo '<a href="' . esc_url($action['url']) . '" 
-                            class="mr-2 inline-flex rounded-md bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50" 
+                      echo '<a href="' . esc_url($action['url']) . '"
+                            class="mr-2 inline-flex rounded-md bg-white px-3 py-1.5 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50"
                             aria-label="' . esc_attr($action_aria_label) . '">' . esc_html($action['name']) . '</a>';
                       unset($action_aria_label);
                     }
@@ -121,14 +121,14 @@ do_action('woocommerce_before_account_orders', $has_orders);
   <?php if (1 < $customer_orders->max_num_pages) : ?>
     <div class="mt-6 flex items-center justify-between">
       <?php if (1 !== $current_page) : ?>
-        <a href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page - 1)); ?>" 
+        <a href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page - 1)); ?>"
            class="inline-flex items-center rounded-md bg-white px-4 py-2 text-sm font-medium text-slate-700 shadow-sm ring-1 ring-inset ring-slate-300 hover:bg-slate-50">
           <?php esc_html_e('Previous', 'woocommerce'); ?>
         </a>
       <?php endif; ?>
 
       <?php if (intval($customer_orders->max_num_pages) !== $current_page) : ?>
-        <a href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page + 1)); ?>" 
+        <a href="<?php echo esc_url(wc_get_endpoint_url('orders', $current_page + 1)); ?>"
            class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-500">
           <?php esc_html_e('Next', 'woocommerce'); ?>
         </a>
@@ -142,7 +142,7 @@ do_action('woocommerce_before_account_orders', $has_orders);
     <p class="text-slate-600">
       <?php esc_html_e('No order has been made yet.', 'woocommerce'); ?>
     </p>
-    <a href="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>" 
+    <a href="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>"
        class="mt-4 inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-indigo-500">
       <?php esc_html_e('Browse products', 'woocommerce'); ?>
     </a>

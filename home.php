@@ -35,9 +35,9 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
           <p class="text-sm font-semibold text-slate-500"><?php esc_html_e('Topic categories', 'romonet'); ?></p>
           <p class="mt-2 text-3xl font-black text-slate-900"><?php echo esc_html(number_format_i18n($category_count)); ?></p>
         </div>
-        <div class="rounded-3xl border border-blue-100 bg-blue-50 p-6">
-          <p class="text-sm font-semibold text-blue-700"><?php esc_html_e('What you will find here', 'romonet'); ?></p>
-          <p class="mt-2 text-sm leading-7 text-blue-900"><?php esc_html_e('Actionable tutorials, agency playbooks, and technical breakdowns you can apply to real projects.', 'romonet'); ?></p>
+        <div class="rounded-3xl border border-pink-100 bg-pink-50 p-6">
+          <p class="text-sm font-semibold text-pink-700"><?php esc_html_e('What you will find here', 'romonet'); ?></p>
+          <p class="mt-2 text-sm leading-7 text-pink-900"><?php esc_html_e('Actionable tutorials, agency playbooks, and technical breakdowns you can apply to real projects.', 'romonet'); ?></p>
         </div>
       </div>
     </div>
@@ -47,11 +47,11 @@ $blog_url       = get_permalink(get_option('page_for_posts')) ?: home_url('/');
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <?php if (! empty($categories)) : ?>
         <div class="mb-10 flex flex-wrap gap-2">
-          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition">
+          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition">
             <?php esc_html_e('All topics', 'romonet'); ?>
           </a>
           <?php foreach ($categories as $category) : ?>
-            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-blue-200 hover:text-blue-700">
+            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-pink-200 hover:text-pink-700">
               <?php echo esc_html($category->name); ?>
             </a>
           <?php endforeach; ?>

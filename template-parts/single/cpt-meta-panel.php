@@ -23,10 +23,10 @@ $archive_url     = isset($args['archive_url']) ? $args['archive_url'] : '';
 $archive_label   = isset($args['archive_label']) ? $args['archive_label'] : '';
 
 $accent_map = array(
-  'portfolio'  => array('header' => 'from-slate-900 via-slate-800 to-blue-900', 'ring' => 'ring-blue-500/20', 'glow' => 'shadow-blue-900/20', 'chip' => 'bg-blue-500/20 text-blue-100'),
+  'portfolio'  => array('header' => 'from-slate-900 via-slate-800 to-pink-900', 'ring' => 'ring-pink-500/20', 'glow' => 'shadow-pink-900/20', 'chip' => 'bg-pink-500/20 text-pink-100'),
   'case_study' => array('header' => 'from-emerald-900 via-teal-900 to-slate-900', 'ring' => 'ring-emerald-500/20', 'glow' => 'shadow-emerald-900/20', 'chip' => 'bg-emerald-500/20 text-emerald-100'),
-  'service'    => array('header' => 'from-blue-700 via-blue-600 to-cyan-700', 'ring' => 'ring-cyan-500/20', 'glow' => 'shadow-blue-900/25', 'chip' => 'bg-white/15 text-white'),
-  'book'       => array('header' => 'from-violet-900 via-blue-900 to-cyan-800', 'ring' => 'ring-violet-500/20', 'glow' => 'shadow-violet-900/25', 'chip' => 'bg-violet-500/20 text-violet-100'),
+  'service'    => array('header' => 'from-pink-700 via-pink-600 to-cyan-700', 'ring' => 'ring-cyan-500/20', 'glow' => 'shadow-pink-900/25', 'chip' => 'bg-white/15 text-white'),
+  'book'       => array('header' => 'from-violet-900 via-pink-900 to-cyan-800', 'ring' => 'ring-violet-500/20', 'glow' => 'shadow-violet-900/25', 'chip' => 'bg-violet-500/20 text-violet-100'),
 );
 $accent = isset($accent_map[$variant]) ? $accent_map[$variant] : $accent_map['portfolio'];
 
@@ -111,14 +111,14 @@ if (empty($visible_items) && ! $highlight && empty($tags) && empty($steps)) {
           <?php foreach ($visible_items as $item) :
             $icon_path = isset($item['icon']) ? $item['icon'] : (isset($icon_map[$item['label']]) ? $icon_map[$item['label']] : $default_icon);
           ?>
-            <div class="group flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 transition hover:border-blue-100 hover:bg-blue-50/50">
-              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-blue-600 shadow-sm ring-1 ring-slate-200/80 transition group-hover:ring-blue-200">
+            <div class="group flex gap-3 rounded-2xl border border-slate-100 bg-slate-50/80 p-4 transition hover:border-pink-100 hover:bg-pink-50/50">
+              <span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-pink-600 shadow-sm ring-1 ring-slate-200/80 transition group-hover:ring-pink-200">
                 <svg class="h-4.5 w-4.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><?php echo $icon_path; ?></svg>
               </span>
               <div class="min-w-0 flex-1">
                 <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-slate-500"><?php echo esc_html($item['label']); ?></p>
                 <?php if (! empty($item['url'])) : ?>
-                  <a href="<?php echo esc_url($item['url']); ?>" target="_blank" rel="noreferrer noopener" class="mt-1 block truncate text-sm font-semibold text-blue-600 transition hover:text-blue-700" dir="ltr"><?php echo esc_html($item['value']); ?></a>
+                  <a href="<?php echo esc_url($item['url']); ?>" target="_blank" rel="noreferrer noopener" class="mt-1 block truncate text-sm font-semibold text-pink-600 transition hover:text-pink-700" dir="ltr"><?php echo esc_html($item['value']); ?></a>
                 <?php else : ?>
                   <p class="mt-1 text-sm font-semibold leading-7 text-slate-800"><?php echo esc_html($item['value']); ?></p>
                 <?php endif; ?>
@@ -134,7 +134,7 @@ if (empty($visible_items) && ! $highlight && empty($tags) && empty($steps)) {
           <ol class="mt-3 space-y-2.5">
             <?php foreach (array_slice($steps, 0, 4) as $index => $step) : ?>
               <li class="flex items-start gap-2.5 text-sm text-slate-700">
-                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-600 text-[11px] font-bold text-white"><?php echo esc_html($index + 1); ?></span>
+                <span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-pink-600 text-[11px] font-bold text-white"><?php echo esc_html($index + 1); ?></span>
                 <span class="leading-6"><?php echo esc_html($step); ?></span>
               </li>
             <?php endforeach; ?>
@@ -147,13 +147,13 @@ if (empty($visible_items) && ! $highlight && empty($tags) && empty($steps)) {
 
       <div class="space-y-2.5 pt-1">
         <?php if ($external_url) : ?>
-          <a href="<?php echo esc_url($external_url); ?>" target="_blank" rel="noreferrer noopener" class="flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700">
+          <a href="<?php echo esc_url($external_url); ?>" target="_blank" rel="noreferrer noopener" class="flex w-full items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-semibold text-slate-800 shadow-sm transition hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700">
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             <?php echo esc_html($external_label); ?>
           </a>
         <?php endif; ?>
 
-        <a href="<?php echo esc_url($primary_url); ?>" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-blue-600/25 transition hover:bg-blue-500">
+        <a href="<?php echo esc_url($primary_url); ?>" class="flex w-full items-center justify-center gap-2 rounded-2xl bg-pink-600 px-4 py-3.5 text-sm font-semibold text-white shadow-lg shadow-pink-600/25 transition hover:bg-pink-500">
           <?php echo esc_html($primary_cta); ?>
         </a>
 
@@ -163,7 +163,7 @@ if (empty($visible_items) && ! $highlight && empty($tags) && empty($steps)) {
       </div>
 
       <?php if ($archive_url && $archive_label) : ?>
-        <a href="<?php echo esc_url($archive_url); ?>" class="flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 transition hover:text-blue-600">
+        <a href="<?php echo esc_url($archive_url); ?>" class="flex items-center justify-center gap-1.5 text-xs font-semibold text-slate-500 transition hover:text-pink-600">
           <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
           <?php echo esc_html($archive_label); ?>
         </a>

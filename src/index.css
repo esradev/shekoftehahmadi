@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 * {
-  font-family: 'IRANYekanX', sans-serif;
+  font-family: "IRANYekanX", sans-serif;
 }
 
 [x-cloak] {
@@ -51,7 +51,7 @@
 .wp-block-group.romonet-cta-section.is-style-romonet-cta-default p {
   color: #bfdbfe;
 }
-.has-blue-700-color-color {
+.has-pink-700-color-color {
   color: #1d4ed8;
 }
 
@@ -432,7 +432,9 @@
     font-size: 0.9375rem;
     font-weight: 600;
     color: #e2e8f0;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease;
   }
 
   .romonet-mobile-flyout__nav a:hover {
@@ -505,8 +507,8 @@
   color: #0f172a;
 }
 
-.woocommerce #reviews #respond input[type='text'],
-.woocommerce #reviews #respond input[type='email'],
+.woocommerce #reviews #respond input[type="text"],
+.woocommerce #reviews #respond input[type="email"],
 .woocommerce #reviews #respond textarea,
 .woocommerce #reviews #respond select {
   width: 100%;
@@ -517,8 +519,8 @@
   color: #0f172a;
 }
 
-.woocommerce #reviews #respond input[type='text']:focus,
-.woocommerce #reviews #respond input[type='email']:focus,
+.woocommerce #reviews #respond input[type="text"]:focus,
+.woocommerce #reviews #respond input[type="email"]:focus,
 .woocommerce #reviews #respond textarea:focus,
 .woocommerce #reviews #respond select:focus {
   outline: none;

@@ -23,7 +23,7 @@ get_header();
         <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           <?php while (have_posts()) : the_post(); ?>
             <article class="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm">
-              <h2 class="text-xl font-bold text-slate-900"><a href="<?php the_permalink(); ?>" class="transition hover:text-blue-700"><?php the_title(); ?></a></h2>
+              <h2 class="text-xl font-bold text-slate-900"><a href="<?php the_permalink(); ?>" class="transition hover:text-pink-700"><?php the_title(); ?></a></h2>
               <p class="mt-3 text-sm leading-7 text-slate-600"><?php echo esc_html(wp_trim_words(wp_strip_all_tags(get_the_excerpt() ? get_the_excerpt() : get_the_content()), 24)); ?></p>
             </article>
           <?php endwhile; ?>

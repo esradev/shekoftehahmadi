@@ -93,7 +93,7 @@ if ($secondary_taxonomy) {
       <?php endif; ?>
 
       <div class="flex flex-wrap gap-2">
-        <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">جستجو</button>
+        <button type="submit" class="inline-flex items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">جستجو</button>
         <?php if ($has_filters) : ?>
           <a href="<?php echo esc_url($archive_url); ?>" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50">پاک کردن فیلترها</a>
         <?php endif; ?>
@@ -103,11 +103,11 @@ if ($secondary_taxonomy) {
 
   <?php if (! empty($type_links)) : ?>
     <div class="flex flex-wrap gap-2">
-      <a href="<?php echo esc_url($build_url($all_terms_link_args)); ?>" class="inline-flex rounded-full px-4 py-2 text-sm font-semibold transition <?php echo ! $active_type ? 'bg-blue-600 text-white shadow-sm' : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-200 hover:text-blue-700'; ?>">
+      <a href="<?php echo esc_url($build_url($all_terms_link_args)); ?>" class="inline-flex rounded-full px-4 py-2 text-sm font-semibold transition <?php echo ! $active_type ? 'bg-pink-600 text-white shadow-sm' : 'border border-slate-200 bg-white text-slate-600 hover:border-pink-200 hover:text-pink-700'; ?>">
         <?php echo esc_html($config['all_label']); ?>
       </a>
       <?php foreach ($type_links as $link) : ?>
-        <a href="<?php echo esc_url($link['url']); ?>" class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition <?php echo $link['active'] ? 'bg-blue-600 text-white shadow-sm' : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-200 hover:text-blue-700'; ?>">
+        <a href="<?php echo esc_url($link['url']); ?>" class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold transition <?php echo $link['active'] ? 'bg-pink-600 text-white shadow-sm' : 'border border-slate-200 bg-white text-slate-600 hover:border-pink-200 hover:text-pink-700'; ?>">
           <?php echo esc_html($link['label']); ?>
           <span class="rounded-full px-2 py-0.5 text-xs <?php echo $link['active'] ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'; ?>"><?php echo esc_html($link['count']); ?></span>
         </a>

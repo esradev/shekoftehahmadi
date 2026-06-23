@@ -88,8 +88,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
   <section class="border-b border-slate-200 bg-white">
     <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="rounded-2xl border border-blue-100 bg-blue-50/60 px-5 py-4">
-          <p class="text-2xl font-black text-blue-700"><?php echo esc_html($found_posts); ?></p>
+        <div class="rounded-2xl border border-pink-100 bg-pink-50/60 px-5 py-4">
+          <p class="text-2xl font-black text-pink-700"><?php echo esc_html($found_posts); ?></p>
           <p class="mt-1 text-sm text-slate-600">محصول در این نمایش</p>
         </div>
         <div class="rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
@@ -128,7 +128,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                   </p>
                 </div>
                 <?php if ($search_query) : ?>
-                  <p class="text-sm text-blue-700">جستجو: «<?php echo esc_html($search_query); ?>»</p>
+                  <p class="text-sm text-pink-700">جستجو: «<?php echo esc_html($search_query); ?>»</p>
                 <?php endif; ?>
               </div>
 
@@ -136,8 +136,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                 <?php
                 $all_active = '' === $active_type;
                 $all_classes = $all_active
-                  ? 'bg-blue-600 text-white shadow-md shadow-blue-200'
-                  : 'border border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700';
+                  ? 'bg-pink-600 text-white shadow-md shadow-pink-200'
+                  : 'border border-slate-200 bg-white text-slate-700 hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700';
                 ?>
                 <a href="<?php echo esc_url(function_exists('romonet_get_product_archive_filter_url') ? romonet_get_product_archive_filter_url(array('digital_type' => '')) : $shop_url); ?>" class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($all_classes); ?>">
                   همه
@@ -147,8 +147,8 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                   <?php
                   $is_active = $active_type === $type_key;
                   $chip_classes = $is_active
-                    ? 'bg-blue-600 text-white shadow-md shadow-blue-200'
-                    : 'border border-slate-200 bg-white text-slate-700 hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700';
+                    ? 'bg-pink-600 text-white shadow-md shadow-pink-200'
+                    : 'border border-slate-200 bg-white text-slate-700 hover:border-pink-200 hover:bg-pink-50 hover:text-pink-700';
                   $type_count = isset($type_counts[$type_key]) ? $type_counts[$type_key] : 0;
                   ?>
                   <a href="<?php echo esc_url(function_exists('romonet_get_product_archive_filter_url') ? romonet_get_product_archive_filter_url(array('digital_type' => $type_key)) : add_query_arg('digital_type', $type_key, $shop_url)); ?>" class="inline-flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold transition <?php echo esc_attr($chip_classes); ?>">
@@ -180,7 +180,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
             <div class="rounded-3xl border border-dashed border-slate-300 bg-white p-12 text-center">
               <p class="text-lg font-bold text-slate-900">محصولی یافت نشد</p>
               <p class="mt-2 text-sm text-slate-600">فیلتر دیگری امتحان کنید یا با تیم رومونت برای پیشنهاد اختصاصی تماس بگیرید.</p>
-              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex items-center justify-center rounded-full bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">مشاوره رایگان</a>
+              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-6 inline-flex items-center justify-center rounded-full bg-pink-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">مشاوره رایگان</a>
             </div>
           <?php endif; ?>
         </div>
@@ -196,7 +196,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                 <?php if ($active_type) : ?>
                   <input type="hidden" name="digital_type" value="<?php echo esc_attr($active_type); ?>" />
                 <?php endif; ?>
-                <button type="submit" class="shrink-0 rounded-xl bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500">جستجو</button>
+                <button type="submit" class="shrink-0 rounded-xl bg-pink-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-pink-500">جستجو</button>
               </div>
             </form>
           </div>
@@ -211,7 +211,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
               }
               ?>
               <li>
-                <a href="<?php echo esc_url($all_shop_url); ?>" class="<?php echo 0 === $current_cat_id ? 'font-semibold text-blue-700' : 'transition hover:text-blue-700'; ?>">
+                <a href="<?php echo esc_url($all_shop_url); ?>" class="<?php echo 0 === $current_cat_id ? 'font-semibold text-pink-700' : 'transition hover:text-pink-700'; ?>">
                   همه محصولات
                 </a>
               </li>
@@ -229,7 +229,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                   $is_current = $current_cat_id === (int) $product_cat->term_id;
                   ?>
                   <li>
-                    <a href="<?php echo esc_url($cat_link); ?>" class="<?php echo $is_current ? 'font-semibold text-blue-700' : 'transition hover:text-blue-700'; ?>">
+                    <a href="<?php echo esc_url($cat_link); ?>" class="<?php echo $is_current ? 'font-semibold text-pink-700' : 'transition hover:text-pink-700'; ?>">
                       <?php echo esc_html($product_cat->name); ?>
                       <span class="text-slate-400">(<?php echo esc_html($product_cat->count); ?>)</span>
                     </a>
@@ -253,7 +253,7 @@ foreach (array_keys($type_labels_fa) as $type_key) {
                 $type_count = isset($type_counts[$type_key]) ? $type_counts[$type_key] : 0;
                 ?>
                 <li>
-                  <a href="<?php echo esc_url($type_url); ?>" class="flex items-center justify-between <?php echo $is_current_type ? 'font-semibold text-blue-700' : 'transition hover:text-blue-700'; ?>">
+                  <a href="<?php echo esc_url($type_url); ?>" class="flex items-center justify-between <?php echo $is_current_type ? 'font-semibold text-pink-700' : 'transition hover:text-pink-700'; ?>">
                     <span><?php echo esc_html($type_label); ?></span>
                     <span class="text-slate-400"><?php echo esc_html($type_count); ?></span>
                   </a>
@@ -262,10 +262,10 @@ foreach (array_keys($type_labels_fa) as $type_key) {
             </ul>
           </div>
 
-          <div class="rounded-2xl border border-blue-100 bg-linear-to-br from-blue-50 to-indigo-50 p-6">
+          <div class="rounded-2xl border border-pink-100 bg-linear-to-br from-pink-50 to-indigo-50 p-6">
             <h2 class="text-lg font-bold text-slate-900">در انتخاب مردد هستید؟</h2>
             <p class="mt-3 text-sm leading-7 text-slate-600">نیاز پروژه خود را بگویید تا مناسب‌ترین قالب، افزونه المنتور یا بسته کروکوبلاک را پیشنهاد دهیم.</p>
-            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-blue-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-blue-500">
+            <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="mt-5 inline-flex w-full items-center justify-center rounded-xl bg-pink-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-pink-500">
               مشاوره رایگان
             </a>
           </div>

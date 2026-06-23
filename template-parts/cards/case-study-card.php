@@ -31,7 +31,7 @@ if (! $featured) {
 
 ?>
 
-<a href="<?php echo esc_url($url); ?>" class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-100/40">
+<a href="<?php echo esc_url($url); ?>" class="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-pink-200 hover:shadow-xl hover:shadow-pink-100/40">
   <?php if ($featured) : ?>
     <span class="absolute start-4 top-4 z-10 rounded-full bg-cyan-600 px-3 py-1 text-xs font-bold text-white shadow-sm">ویژه</span>
   <?php endif; ?>
@@ -51,7 +51,7 @@ if (! $featured) {
 
   <div class="p-7">
     <span class="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-600">مطالعه موردی</span>
-    <h3 class="mt-2 text-lg font-bold text-slate-900 transition group-hover:text-blue-700"><?php echo esc_html($title); ?></h3>
+    <h3 class="mt-2 text-lg font-bold text-slate-900 transition group-hover:text-pink-700"><?php echo esc_html($title); ?></h3>
 
     <?php if ($client) : ?>
       <div class="mt-2 text-xs font-medium text-slate-500">مشتری: <?php echo esc_html($client); ?></div>
@@ -71,7 +71,7 @@ if (! $featured) {
       <?php endif; ?>
     </div>
 
-    <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600">مشاهده مطالعه
+    <span class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-pink-600">مشاهده مطالعه
       <svg class="h-4 w-4 transition group-hover:-translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <path d="M19 12H5" />
         <path d="m12 19-7-7 7-7" />

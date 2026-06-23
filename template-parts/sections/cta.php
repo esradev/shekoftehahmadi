@@ -12,18 +12,18 @@ $primary_url = isset($args['primary_url']) ? $args['primary_url'] : home_url('/p
 $secondary = isset($args['secondary']) ? $args['secondary'] : 'مشاوره رایگان';
 $secondary_url = isset($args['secondary_url']) ? $args['secondary_url'] : home_url('/contact/');
 
-$section_classes = 'relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-blue-200/50 sm:px-12 lg:py-16';
-$primary_button_classes = 'rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-blue-700 shadow-sm transition hover:bg-blue-50';
+$section_classes = 'relative overflow-hidden rounded-3xl px-6 py-14 text-center shadow-xl shadow-pink-200/50 sm:px-12 lg:py-16';
+$primary_button_classes = 'rounded-xl bg-white px-6 py-3.5 text-base font-semibold text-pink-700 shadow-sm transition hover:bg-pink-50';
 $secondary_button_classes = 'rounded-xl border border-white/30 px-6 py-3.5 text-base font-semibold text-white transition hover:bg-white/10';
-$text_classes = 'mt-4 text-pretty text-lg leading-8 text-blue-100';
+$text_classes = 'mt-4 text-pretty text-lg leading-8 text-pink-100';
 
 if ($style === 'inverse') {
   $section_classes .= ' bg-slate-900';
-  $primary_button_classes = 'rounded-xl bg-blue-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-blue-500';
+  $primary_button_classes = 'rounded-xl bg-pink-600 px-6 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-pink-500';
   $secondary_button_classes = 'rounded-xl border border-slate-300 bg-transparent px-6 py-3.5 text-base font-semibold text-slate-200 transition hover:border-slate-200 hover:bg-slate-800';
   $text_classes = 'mt-4 text-pretty text-lg leading-8 text-slate-300';
 } else {
-  $section_classes .= ' bg-blue-700';
+  $section_classes .= ' bg-pink-700';
 }
 
 ?>

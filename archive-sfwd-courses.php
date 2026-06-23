@@ -104,8 +104,8 @@ foreach ($level_labels as $level_key => $level_label) {
           <p class="text-2xl font-black text-slate-900">ساعت</p>
           <p class="mt-1 text-sm text-slate-600">محتوای ویدیویی با کیفیت</p>
         </div>
-        <div class="rounded-2xl border border-amber-100 bg-amber-50/60 px-5 py-4">
-          <p class="text-2xl font-black text-amber-700">گواهی‌نامه</p>
+        <div class="rounded-2xl border border-pink-100 bg-pink-50/60 px-5 py-4">
+          <p class="text-2xl font-black text-pink-700">گواهی‌نامه</p>
           <p class="mt-1 text-sm text-slate-600">مدرک معتبر پس از اتمام</p>
         </div>
       </div>

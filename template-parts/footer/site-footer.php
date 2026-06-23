@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) {
     <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
       <div class="lg:col-span-2">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex items-center gap-2.5" aria-label="رومونت">
-          <span class="grid h-10 w-10 place-items-center rounded-xl bg-blue-600 text-white">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-pink-600 text-white">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0Z" />
               <path d="m4 9 4.5 11L12 9l3.5 11L20 9" />
@@ -140,10 +140,10 @@ if (! defined('ABSPATH')) {
       </div>
     </div>
 
-    <div class="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-slate-900 via-slate-900 to-blue-950 p-8 sm:p-10">
+    <div class="mt-12 overflow-hidden rounded-3xl border border-white/10 bg-linear-to-br from-slate-900 via-slate-900 to-pink-950 p-8 sm:p-10">
       <div class="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:items-center">
         <div>
-          <span class="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold text-blue-300">
+          <span class="inline-flex items-center gap-2 rounded-full border border-pink-500/30 bg-pink-500/10 px-3 py-1 text-xs font-semibold text-pink-300">
             <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
             </svg>

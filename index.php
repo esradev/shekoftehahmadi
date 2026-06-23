@@ -24,7 +24,7 @@ get_header();
         <div class="space-y-6">
           <?php while (have_posts()) : the_post(); ?>
             <article <?php post_class('p-7'); ?>>
-              <h2 class="text-2xl font-bold text-slate-900"><a href="<?php the_permalink(); ?>" class="transition hover:text-blue-700"><?php the_title(); ?></a></h2>
+              <h2 class="text-2xl font-bold text-slate-900"><a href="<?php the_permalink(); ?>" class="transition hover:text-pink-700"><?php the_title(); ?></a></h2>
               <div class="prose prose-slate mt-4 max-w-none">
                 <?php the_content(); ?>
               </div>

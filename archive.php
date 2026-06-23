@@ -28,12 +28,12 @@ $categories    = get_categories(array('hide_empty' => true));
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <?php if (! empty($categories)) : ?>
         <div class="mb-10 flex flex-wrap gap-2">
-          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-blue-200 hover:text-blue-700">
+          <a href="<?php echo esc_url($blog_url); ?>" class="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 transition hover:border-pink-200 hover:text-pink-700">
             <?php esc_html_e('All topics', 'romonet'); ?>
           </a>
           <?php foreach ($categories as $category) : ?>
             <?php $is_active = $is_category && (int) get_queried_object_id() === (int) $category->term_id; ?>
-            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="inline-flex rounded-full px-4 py-2 text-sm font-semibold transition <?php echo $is_active ? 'bg-blue-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:border-blue-200 hover:text-blue-700'; ?>">
+            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="inline-flex rounded-full px-4 py-2 text-sm font-semibold transition <?php echo $is_active ? 'bg-pink-600 text-white' : 'border border-slate-200 bg-white text-slate-600 hover:border-pink-200 hover:text-pink-700'; ?>">
               <?php echo esc_html($category->name); ?>
             </a>
           <?php endforeach; ?>

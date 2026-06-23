@@ -48,14 +48,14 @@ $commenter = wp_get_current_commenter();
       'title_reply_after'    => '</h3>',
       'comment_notes_before' => '<p class="mb-4 text-sm text-slate-600">' . esc_html__('Your email will not be published. Required fields are marked.', 'romonet') . '</p>',
       'class_form'           => 'mt-6 space-y-4',
-      'class_submit'         => 'inline-flex items-center justify-center rounded-xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-500',
+      'class_submit'         => 'inline-flex items-center justify-center rounded-xl bg-pink-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-pink-500',
       'submit_button'        => '<button name="%1$s" type="submit" id="%2$s" class="%3$s">%4$s</button>',
       'fields'               => array(
-        'author' => '<p class="comment-form-author"><label class="mb-2 block text-sm font-semibold text-slate-700" for="author">' . esc_html__('Name', 'romonet') . ' <span class="required">*</span></label><input id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30" maxlength="245" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-blue-300" /></p>',
-        'email'  => '<p class="comment-form-email"><label class="mb-2 block text-sm font-semibold text-slate-700" for="email">' . esc_html__('Email', 'romonet') . ' <span class="required">*</span></label><input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30" maxlength="100" aria-describedby="email-notes" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-blue-300" /></p>',
+        'author' => '<p class="comment-form-author"><label class="mb-2 block text-sm font-semibold text-slate-700" for="author">' . esc_html__('Name', 'romonet') . ' <span class="required">*</span></label><input id="author" name="author" type="text" value="' . esc_attr($commenter['comment_author']) . '" size="30" maxlength="245" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-pink-300" /></p>',
+        'email'  => '<p class="comment-form-email"><label class="mb-2 block text-sm font-semibold text-slate-700" for="email">' . esc_html__('Email', 'romonet') . ' <span class="required">*</span></label><input id="email" name="email" type="email" value="' . esc_attr($commenter['comment_author_email']) . '" size="30" maxlength="100" aria-describedby="email-notes" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-pink-300" /></p>',
         'url'    => '',
       ),
-      'comment_field'        => '<p class="comment-form-comment"><label class="mb-2 block text-sm font-semibold text-slate-700" for="comment">' . esc_html__('Comment', 'romonet') . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="6" maxlength="65525" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-blue-300"></textarea></p>',
+      'comment_field'        => '<p class="comment-form-comment"><label class="mb-2 block text-sm font-semibold text-slate-700" for="comment">' . esc_html__('Comment', 'romonet') . ' <span class="required">*</span></label><textarea id="comment" name="comment" cols="45" rows="6" maxlength="65525" required class="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 outline-none focus:border-pink-300"></textarea></p>',
     )
   );
   ?>
