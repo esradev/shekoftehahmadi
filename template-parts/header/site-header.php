@@ -159,7 +159,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
             'depth'          => 1,
           )
         );
-        remove_filter('nav_menu_link_attributes', 'romonet_top_bar_nav_menu_link_attributes', 10, 4);
+        remove_filter('nav_menu_link_attributes', 'romonet_top_bar_nav_menu_link_attributes', 10);
         ?>
       </nav>
     </div>
@@ -168,7 +168,7 @@ $cart_items   = (function_exists('WC') && WC()->cart) ? WC()->cart->get_cart() :
   <!-- Primary header: sticky on scroll -->
   <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 text-white backdrop-blur-xl">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 items-center justify-between gap-4 lg:h-[4.5rem]">
+      <div class="flex h-16 items-center justify-between gap-4 lg:h-18">
         <a href="<?php echo esc_url(home_url('/')); ?>" class="flex shrink-0 items-center gap-3 rounded-xl px-1 py-1"
           aria-label="شکفته احمدی">
           <span
